@@ -31,7 +31,8 @@ class UserNotFoundError(Exception):
 class User(UserMixin):
     '''Simple User class'''
     USERS = {
-        'admin':'password'
+        'admin':'password',
+        'garrett':'password'
     }
 
     def __init__(self, id):
