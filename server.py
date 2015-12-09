@@ -3,6 +3,8 @@ from flask import Flask, flash, render_template, request, session, redirect, url
 from flask.ext.login import LoginManager, UserMixin, current_user, login_user, logout_user
 import sqlite3
 
+garrett was here
+
 conn = sqlite3.connect('logins.sqlite')
 c = conn.cursor()
 
