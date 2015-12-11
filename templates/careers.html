@@ -1,4 +1,7 @@
 {% set menu = 'main' %}
+{% block head %}
+  {{ super() }}
+{% endblock %}
 {% block title %}- Creers{% endblock %}
 {% block content %}
   <main>
@@ -24,4 +27,7 @@
       <input type="file">
       <input type="text">
   </main>
+{% endblock %}
+{% block footer %}
+  {{ super() }}
 {% endblock %}
