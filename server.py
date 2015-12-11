@@ -1,15 +1,7 @@
 
 from flask import Flask, flash, render_template, request, session, redirect, url_for
 from flask.ext.login import LoginManager, UserMixin, current_user, login_user, logout_user
-import sqlite3
-
-conn = sqlite3.connect('logins.sqlite')
-c = conn.cursor()
-
-c.execute("""CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY AUTOINCREMENT, username VARCHAR(75) NOT NULL UNIQUE, password VARCHAR(75) NOT NULL)""")
-
-conn.commit()
-conn.close()
+import sqlalchemy
 
 DEBUG=True
 
