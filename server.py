@@ -9,6 +9,27 @@ app = Flask(__name__)
 
 app.config['SECRET_KEY'] = 'SET T0 4NY SECRET KEY L1KE RAND0M H4SH'
 
+engine = sqlalchemy.create_engine('', echo=True)
+Base = sqlalchemy.ext.declarative.declarative_base()
+class Users(Base):
+    __tablename__ = "Users"
+
+    id = sqlalchemy.Column(Integer, primary_key=True)
+     name = sqlalchemy.Column(String)
+     fullname = sqlalchemy.Column(String)
+     password = sqlalchemy.Column(String)
+
+class Locations(Base):
+    __tablename__ = "Locations"
+
+    id = sqlalchemy.Column(Integer, primary_key=True)
+     address = sqlalchemy.Column(String)
+     phone = sqlalchemy.Column(Integer)
+     fax = sqlalchemy.Column(Integer)
+     email = sqlalchemy.Column(Integer)
+
+
+
 login_manager = LoginManager()
 login_manager.init_app(app)
 
