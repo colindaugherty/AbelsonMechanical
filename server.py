@@ -1,7 +1,8 @@
 
 from flask import Flask, flash, render_template, request, session, redirect, url_for
 from flask.ext.login import LoginManager, UserMixin, current_user, login_user, logout_user
-import sqlalchemy
+from sqlalchemy import Integer, String, Column
+import sqlalchemy.ext.declarative
 
 DEBUG=True
 
@@ -9,24 +10,24 @@ app = Flask(__name__)
 
 app.config['SECRET_KEY'] = 'SET T0 4NY SECRET KEY L1KE RAND0M H4SH'
 
-engine = sqlalchemy.create_engine('', echo=True)
+engine = sqlalchemy.create_engine('sqlite:////abelson.db', echo=True)
 Base = sqlalchemy.ext.declarative.declarative_base()
 class Users(Base):
     __tablename__ = "Users"
 
-    id = sqlalchemy.Column(Integer, primary_key=True)
-     name = sqlalchemy.Column(String)
-     fullname = sqlalchemy.Column(String)
-     password = sqlalchemy.Column(String)
+    id = Column(Integer, primary_key=True)
+    name = Column(String)
+    fullname = Column(String)
+    password = Column(String)
 
 class Locations(Base):
     __tablename__ = "Locations"
 
-    id = sqlalchemy.Column(Integer, primary_key=True)
-     address = sqlalchemy.Column(String)
-     phone = sqlalchemy.Column(Integer)
-     fax = sqlalchemy.Column(Integer)
-     email = sqlalchemy.Column(Integer)
+    id = Column(Integer, primary_key=True)
+    address = Column(String)
+    phone = Column(Integer)
+    fax = Column(Integer)
+    email = Column(Integer)
 
 
 
