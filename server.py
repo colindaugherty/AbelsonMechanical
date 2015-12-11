@@ -33,9 +33,9 @@ class Jobs(Base):
     __tablename__ = "Jobs"
 
     id = sqlalchemy.Column(Integer, primary_key=True)
-     title = sqlalchemy.Column(String)
-     locations = sqlalchemy.Column(String)
-     descition = sqlalchemy.Column(String)
+    title = sqlalchemy.Column(String)
+    locations = sqlalchemy.Column(String)
+    descition = sqlalchemy.Column(String)
 
 
 
