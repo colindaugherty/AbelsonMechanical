@@ -28,6 +28,14 @@ class Locations(Base):
      fax = sqlalchemy.Column(Integer)
      email = sqlalchemy.Column(Integer)
 
+class Jobs(Base):
+    __tablename__ = "Jobs"
+
+    id = sqlalchemy.Column(Integer, primary_key=True)
+     title = sqlalchemy.Column(String)
+     locations = sqlalchemy.Column(String)
+     descition = sqlalchemy.Column(String)
+
 
 
 login_manager = LoginManager()
