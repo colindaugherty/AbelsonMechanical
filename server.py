@@ -1,14 +1,14 @@
-
 from flask import Flask, flash, render_template, request, session, redirect, url_for
 from flask.ext.login import LoginManager, UserMixin, current_user, login_user, logout_user
-from sqlalchemy import Integer, String, Column
-import sqlalchemy.ext.declarative
+# TODO: Implement SQLAlchemy
 
 DEBUG=True
 
 app = Flask(__name__)
-
 app.config['SECRET_KEY'] = 'SET T0 4NY SECRET KEY L1KE RAND0M H4SH'
+app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///tmp/test.db"
+
+db = SQLAlchemy(app)
 
 engine = sqlalchemy.create_engine('sqlite:////abelson.db', echo=True)
 Base = sqlalchemy.ext.declarative.declarative_base()
