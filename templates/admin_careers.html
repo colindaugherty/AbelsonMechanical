@@ -8,6 +8,11 @@
   <main>
     <h1>Job Postings</h1>
     <h1 id="+"> + </h1>
+    <ul>
+      {% for job in jobs%}
+        <li><a>{{job.job}}</a><span>{{job.loc}}</span><span class="deleteX">X</span></li>
+      {% endfor %}
+    </ul>
   </main>
 
 {% endblock %}
