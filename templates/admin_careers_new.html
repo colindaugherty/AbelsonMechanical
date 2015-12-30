@@ -5,7 +5,15 @@
 {% endblock %}
 {% block title %}- Admin Careers New{% endblock %}
 {% block content %}
-
+  <main>
+    <h1>Job Postings</h1>
+    <input type="text" id="new_job_name">
+    <select id="new_careers_loc">
+      <option>louisville</option>
+      <option>Evensville</option>
+    </select>
+    <input type="text" id="new_job_desiption">
+  </main>
 {% endblock %}
 {% block footer %}
   {{ super() }}
