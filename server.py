@@ -1,4 +1,4 @@
-from flask import Flask, flash, render_template, request, session, redirect, url_for
+from flask import Flask, flash, render_template, request, session, redirect, url_for, jsonify
 from flask.ext.login import LoginManager, UserMixin, current_user, login_user, logout_user
 import sqlite3
 # TODO: Implement SQL
@@ -12,6 +12,12 @@ login_manager = LoginManager()
 login_manager.init_app(app)
 
 Flask.secret_key = "random"
+
+#uttility functions
+
+def make_dict(tup_list, fields):
+    return [dict(zip(fields, d)) for d in tup_list]
+
 
 class UserNotFoundError(Exception):
     pass
@@ -76,30 +82,48 @@ def logout():
 def index():
     return render_template('index.html')
 
-@app.route("/admin")
+@app.route("/admin", methods=["GET", "POST"])
 def admin():
     if current_user.is_authenticated == True:
-        return render_template('admin.html')
+        if request.method == "GET":
+            return render_template('admin.html')
+        if request.method == "POST":
     else:
         return redirect(url_for('index'))
 
-@app.route("/admin/careers")
+@app.route("/admin/careers", methods=["GET", "POST"])
 def admin_careers():
     if current_user.is_authenticated == True:
-        return render_template('admin_careers.html')
+        if request.method == "GET":
+            return render_template('admin_careers.html')
+        if request.method == "POST":
     else:
         return redirect(url_for('index'))
 
-@app.route("/admin/careers/new")
+@app.route("/admin/careers/new", methods=["GET", "POST"])
 def admin_careers_new():
     if current_user.is_authenticated == True:
-        return render_template("admin_careers_new.html")
+        if request.method == "GET":
+            return render_template("admin_careers_new.html")
+        if request.method == "POST":
     else:
         return redirect(url_for('index'))
 
-@app.route("/admin/careers/<int:career_id>")
+@app.route("/admin/careers/<int:career_id>", methods=["GET", "POST"])
 def edit_career(career_id):
-    return str(career_id)
+    if current_user.is_authenticated == True:
+        if request.method == "GET":
+            return render_template("admin_careers_edit")
+        if request.method == "POST":
+
+    else:
+        return redirect(url_for("index"))
+
+#@app.route("/json", methods=["GET", "POST"])
+#def jason():
+#    if request.method == "POST":
+#        return jsonify(name="Garrett")
+#    return render_template("json.html", hi="hi")
 
 @app.route("/careers", methods=['GET'])
 def careers():
