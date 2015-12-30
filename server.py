@@ -97,6 +97,10 @@ def admin_careers_new():
     else:
         return redirect(url_for('index'))
 
+@app.route("/admin/careers/<int:career_id>")
+def edit_career(career_id):
+    return str(career_id)
+
 @app.route("/careers", methods=['GET'])
 def careers():
     return render_template('careers.html')
