@@ -1,9 +1,22 @@
 from flask import Flask, flash, render_template, request, session, redirect, url_for, jsonify
 from flask.ext.login import LoginManager, UserMixin, current_user, login_user, logout_user
 import sqlite3
-# TODO: Implement SQL
+
+# Checklist-
+# Implement Sqlite
+
+users = []
 
 DEBUG=True
+
+conn = sqlite3.connect('abelson.sqlite')
+c = conn.cursor()
+
+c.execute("""CREATE TABLE IF NOT EXISTS jobs (id INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR(75) NOT NULL UNIQUE, location VARCHAR(20) NOT NULL, description VARCHAR(150) NOT NULL)""")
+c.execute("""CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY AUTOINCREMENT, username VARCHAR(25) NOT NULL UNIQUE, password VARCHAR(50) NOT NULL)""")
+
+conn.commit()
+conn.close()
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'SET T0 4NY SECRET KEY L1KE RAND0M H4SH'
@@ -13,7 +26,7 @@ login_manager.init_app(app)
 
 Flask.secret_key = "random"
 
-#uttility functions
+#utility functions
 
 def make_dict(tup_list, fields):
     return [dict(zip(fields, d)) for d in tup_list]
@@ -22,6 +35,15 @@ def make_dict(tup_list, fields):
 class UserNotFoundError(Exception):
     pass
 
+#SQlite Jobs and Locations Code Thing
+conn = sqlite3.connect('abelson.sqlite')
+c = conn.cursor()
+for row in c.execute('SELECT * FROM users'):
+    users.append(row)
+    print(row)
+    print(users)
+conn.commit()
+conn.close()
 
 # Simple user class base on UserMixin
 # http://flask-login.readthedocs.org/en/latest/_modules/flask/ext/login.html#UserMixin
