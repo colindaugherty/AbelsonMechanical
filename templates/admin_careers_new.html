@@ -7,12 +7,25 @@
 {% block content %}
   <main>
     <h1>Job Postings</h1>
-    <input type="text" id="new_job_name">
-    <select id="new_careers_loc">
-      <option>louisville</option>
-      <option>Evensville</option>
-    </select>
-    <input type="text" id="new_job_desiption">
+    <form action="/admin/careers/new" method="post">
+
+      <label>
+        <span>Job Name:</span>
+        <input type="text" placeholder="Job Name" name="name">
+      </label>
+      <label>
+        <span>Location:</span>
+        <select name="location">
+          <option value="Louisville, KY">Louisville, KY</option>
+          <option value="Evansville, IN">Evansville, IN</option>
+        </select>
+      </label>
+      <label>
+        <span>Description:</span>
+        <textarea name="description" rows="8" cols="40" placeholder="Description"></textarea>
+      </label>
+      <button type="submit">Add</button>
+    </form>
   </main>
 {% endblock %}
 {% block footer %}

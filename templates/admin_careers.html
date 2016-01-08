@@ -7,7 +7,7 @@
 {% block content %}
   <main>
     <h1>Job Postings</h1>
-    <h1 id="+"> + </h1>
+    <a href="{{url_for(admin_careers_new)}}">+</a>
     <ul>
       {% for job in jobs%}
         <li><a>{{job.job}}</a><span>{{job.loc}}</span><span class="deleteX">X</span></li>
