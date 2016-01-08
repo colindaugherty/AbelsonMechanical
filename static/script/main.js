@@ -1,24 +1,22 @@
-var select, div, newJobName, newJobLoc, newJobDesc, newJobNameValue, newJobLocValue, newJobDescValue, newJob;
-
 var animationControler = (function(){
-  select = document.getElementById('careers_edit');
+  var select = document.getElementById('careers_edit');
 
   select.addEventListener("change", function(e){
-  div = document.getElementById('edit_div');
+    var div = document.getElementById('edit_div');
     div.classList.add('fadein');
   });
 })();
 
 var newCareersPost = (function(){
-  newJobName = document.getElementById('new_job_name');
-  newJobLoc = document.getElementById('new_careers_loc');
-  newJobDesc = document.getElementById('new_job_desiption');
+  var newJobName = document.getElementById('new_job_name'),
+      newJobLoc = document.getElementById('new_careers_loc'),
+      newJobDes = document.getElementById('new_job_desiption');
 
-  newJobNameValue = newJobName.value;
-  newJobLocValue = newJobLoc.value;
-  newJobDescValue = newJobDesc.value;
+  var newJobNameValue = newJobName.value,
+      newJobLocValue = newJobLoc.value,
+      newJobDesValue = newJobDes.value;
 
-  newJob = [newJobNameValue, newJobLocValue, newJobDesValue];
+  var newJob = [newJobNameValue, newJobLocValue, newJobDesValue];
 
   function PostRequest(){
 
@@ -36,5 +34,18 @@ var newCareersPost = (function(){
     function responseHandler(r) {
         window.alert("It worked!");
     }
+
+})();
+
+var updateloc = (function(){
+  var locName = $("#careers_edit"),
+      locAddress = $("#edit_loc_address"),
+      locEmail = $("#edit_loc_email"),
+      locFax = $("#edit_loc_fax"),
+      locPhone = $("#edit_loc_phone");
+
+})();
+
+var updatejob = (function(){
 
 })();
