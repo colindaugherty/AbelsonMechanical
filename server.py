@@ -88,6 +88,7 @@ def admin():
         if request.method == "GET":
             return render_template('admin.html')
         if request.method == "POST":
+            pass
     else:
         return redirect(url_for('index'))
 
@@ -97,6 +98,7 @@ def admin_careers():
         if request.method == "GET":
             return render_template('admin_careers.html')
         if request.method == "POST":
+            pass
     else:
         return redirect(url_for('index'))
 
@@ -106,6 +108,7 @@ def admin_careers_new():
         if request.method == "GET":
             return render_template("admin_careers_new.html")
         if request.method == "POST":
+            pass
     else:
         return redirect(url_for('index'))
 
@@ -115,7 +118,7 @@ def edit_career(career_id):
         if request.method == "GET":
             return render_template("admin_careers_edit")
         if request.method == "POST":
-
+            pass
     else:
         return redirect(url_for("index"))
 
