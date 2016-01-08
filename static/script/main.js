@@ -6,3 +6,11 @@ var animationControler = (function(){
     div.classList.add('fadein');
   });
 })();
+
+var newCareersPost = (function(){
+  var newJobName = document.getElementById('new_job_name'),
+      newJobLoc = document.getElementById('new_careers_loc'),
+      newJobDes = document.getElementById('new_job_desiption');
+
+  
+})();

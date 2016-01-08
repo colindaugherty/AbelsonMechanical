@@ -60,7 +60,7 @@ def login():
         return render_template('login.html')
 
 
-@app.route('/login/check', methods=['post'])
+@app.route('/login/check', methods=['POST'])
 def login_check():
     # validate username and password
     user = User.get(request.form['username'])
