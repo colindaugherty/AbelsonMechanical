@@ -14,7 +14,7 @@ var ABELSONMECHANICAL = (function(){
 
     select.on("change", function(e){
       div = $('#edit_div');
-      div.fadeIn("slow");
+      div.addClass('fadein');
     });
   }
 
