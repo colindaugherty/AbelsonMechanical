@@ -12,6 +12,8 @@ var ABELSONMECHANICAL = (function(){
         careerNewForm = document.getElementById('careerNewForm');
         //careerEditForm = document.getElementById('careerNewForm');
 
+    var Evt = new EventEmitter2();
+
   function animationController() {
     select = $('#loc_edit');
 
