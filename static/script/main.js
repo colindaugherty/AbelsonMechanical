@@ -9,6 +9,8 @@ function ready(fn) {
 var ABELSONMECHANICAL = (function(){
     var select, div;
 
+    var Evt = new EventEmitter2();
+
   function animationController() {
     select = $('#loc_edit');
 
