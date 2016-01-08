@@ -8,6 +8,9 @@ function ready(fn) {
 
 var ABELSONMECHANICAL = (function(){
     var select, div;
+    var AdminForm = document.getElementById('adminform'),
+        careerNewForm = document.getElementById('careerNewForm');
+        //careerEditForm = document.getElementById('careerNewForm');
 
   function animationController() {
     select = $('#loc_edit');
@@ -36,6 +39,8 @@ var ABELSONMECHANICAL = (function(){
 
   function init() {
       animationController();
+      AdminForm.addEventListener("submit", locEdit);
+      careerNewForm.addEventListener("submit", careerNew);
   }
 
   return {
