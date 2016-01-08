@@ -13,7 +13,7 @@
     <hr>
     <p>Hello, {{current_user.name}} this is your new settings page! Pretty much. Anyways, from here on all changes will effect the entire website, so please be careful!<br>We have a fallback alternative if everything breaks, but I would rather not initiate that program.</p>
     <hr>
-    <form action="/admin" method="post">
+    <form id="adminform" action="/admin" method="post">
       <label>
         <span>Select a location</span>
         <select name="loc_edit" id="loc_edit">
