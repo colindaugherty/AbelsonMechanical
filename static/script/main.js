@@ -1,22 +1,24 @@
+var select, div, newJobName, newJobLoc, newJobDesc, newJobNameValue, newJobLocValue, newJobDescValue, newJob;
+
 var animationControler = (function(){
-  var select = document.getElementById('careers_edit');
+  select = document.getElementById('careers_edit');
 
   select.addEventListener("change", function(e){
-    var div = document.getElementById('edit_div');
+  div = document.getElementById('edit_div');
     div.classList.add('fadein');
   });
 })();
 
 var newCareersPost = (function(){
-  var newJobName = document.getElementById('new_job_name'),
-      newJobLoc = document.getElementById('new_careers_loc'),
-      newJobDes = document.getElementById('new_job_desiption');
+  newJobName = document.getElementById('new_job_name');
+  newJobLoc = document.getElementById('new_careers_loc');
+  newJobDesc = document.getElementById('new_job_desiption');
 
-  var newJobNameValue = newJobName.value,
-      newJobLocValue = newJobLoc.value,
-      newJobDesValue = newJobDes.value;
+  newJobNameValue = newJobName.value;
+  newJobLocValue = newJobLoc.value;
+  newJobDescValue = newJobDesc.value;
 
-  var newJob = [newJobNameValue, newJobLocValue, newJobDesValue];
+  newJob = [newJobNameValue, newJobLocValue, newJobDesValue];
 
   function PostRequest(){
 
