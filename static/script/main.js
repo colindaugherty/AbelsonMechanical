@@ -18,6 +18,20 @@ var ABELSONMECHANICAL = (function(){
     });
   }
 
+  function careerEdit(){
+    var data = new FormData(form);
+    $.ajax({type: 'POST',url: '/my/url',data: data});
+  }
+
+  function careerNew(){
+    var data = new FormData(form);
+    $.ajax({type: 'POST',url: '/my/url',data: data});
+  }
+
+  function LocEdit(){
+    var data = new FormData(form);
+    $.ajax({type: 'POST',url: '/my/url',data: data});
+  }
 
   function init() {
       animationController();
