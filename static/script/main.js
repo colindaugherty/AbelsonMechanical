@@ -7,12 +7,13 @@ function ready(fn) {
 }
 
 var ABELSONMECHANICAL = (function(){
+    var select, div;
 
   function animationController() {
     select = $('#careers_edit');
 
     select.on("change", function(e){
-    div = $('#edit_div');
+      div = $('#edit_div');
       div.addClass('fadein');
     });
   }
