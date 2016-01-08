@@ -10,11 +10,11 @@ var ABELSONMECHANICAL = (function(){
     var select, div;
 
   function animationController() {
-    select = $('#careers_edit');
+    select = $('#loc_edit');
 
     select.on("change", function(e){
       div = $('#edit_div');
-      div.addClass('fadein');
+      div.fadeIn("slow");
     });
   }
 
