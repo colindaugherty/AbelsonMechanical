@@ -29,7 +29,7 @@ var ABELSONMECHANICAL = (function(){
       $.ajax({type: 'POST',url: '/my/url',data: data});
     }
 
-    function LocEdit(){
+    function locEdit(){
       var data = new FormData(form);
       $.ajax({type: 'POST',url: '/my/url',data: data});
     }
