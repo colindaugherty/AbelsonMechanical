@@ -1,6 +1,8 @@
 from flask import flash, render_template, request, session, redirect, url_for, jsonify
 from flask.ext.login import LoginManager, UserMixin, current_user, login_user, logout_user
-from abelson import app
+
+from abelson import app, bcrypt
+import db
 
 login_manager = LoginManager()
 login_manager.init_app(app)

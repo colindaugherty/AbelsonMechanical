@@ -1,4 +1,5 @@
 import sqlite3
+from yoyo import read_migrations, get_backend
 
 db_file = 'abelson.sqlite'
 user = ['username', 'password']
