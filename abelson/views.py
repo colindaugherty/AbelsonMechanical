@@ -1,41 +1,12 @@
-from flask import Flask, flash, render_template, request, session, redirect, url_for, jsonify
+from flask import flash, render_template, request, session, redirect, url_for, jsonify
 from flask.ext.login import LoginManager, UserMixin, current_user, login_user, logout_user
-import sqlite3
-
-# Checklist-
-# Implement Sqlite
-
-users = []
-
-DEBUG=True
-
-conn = sqlite3.connect('abelson.sqlite')
-c = conn.cursor()
-
-c.execute("""CREATE TABLE IF NOT EXISTS jobs (id INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR(75) NOT NULL UNIQUE, location VARCHAR(20) NOT NULL, description VARCHAR(150) NOT NULL)""")
-c.execute("""CREATE TABLE IF NOT EXISTS users (username VARCHAR(25) NOT NULL UNIQUE, password VARCHAR(50) NOT NULL)""")
-
-conn.commit()
-conn.close()
-
-app = Flask(__name__)
-app.config['SECRET_KEY'] = 'SET T0 4NY SECRET KEY L1KE RAND0M H4SH'
+from abelson import app
 
 login_manager = LoginManager()
 login_manager.init_app(app)
 
-Flask.secret_key = "random"
-
-#utility functions
-def make_dict(tup_list, fields):
-    return [dict(zip(fields, d)) for d in tup_list]
-
-
 class UserNotFoundError(Exception):
     pass
-
-#SQlite Jobs and Locations Code Thing
-
 
 # Simple user class base on UserMixin
 # http://flask-login.readthedocs.org/en/latest/_modules/flask/ext/login.html#UserMixin
@@ -73,7 +44,6 @@ def login():
     else:
         return render_template('login.html')
 
-
 @app.route('/login/check', methods=['POST'])
 def login_check():
     # validate username and password
@@ -85,7 +55,6 @@ def login_check():
         flash('Username or password incorrect')
 
     return redirect(url_for('login'))
-
 
 @app.route('/logout')
 def logout():
@@ -136,15 +105,6 @@ def edit_career(career_id):
     else:
         return redirect(url_for("index"))
 
-#@app.route("/json", methods=["GET", "POST"])
-#def jason():
-#    if request.method == "POST":
-#        return jsonify(name="Garrett")
-#    return render_template("json.html", hi="hi")
-
 @app.route("/careers", methods=['GET'])
 def careers():
     return render_template('careers.html')
-
-if __name__ == "__main__":
-    app.run(debug=True, host="0.0.0.0", port=8000)
