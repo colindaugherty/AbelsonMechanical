@@ -2,7 +2,7 @@ from flask import flash, render_template, request, session, redirect, url_for, j
 from flask.ext.login import LoginManager, UserMixin, current_user, login_user, logout_user
 
 from abelson import app, bcrypt
-import db
+import abelson.db
 
 login_manager = LoginManager()
 login_manager.init_app(app)
@@ -67,15 +67,25 @@ def logout():
 def index():
     return render_template('index.html')
 
-@app.route("/admin", methods=["GET", "POST"])
+@app.route("/admin", methods=["GET"])
 def admin():
     if current_user.is_authenticated == True:
-        if request.method == "GET":
-            return render_template('admin.html')
-        if request.method == "POST":
-            pass
+        return render_template('admin.html')
     else:
         return redirect(url_for('index'))
+
+@app.route("/admin/loc", methods=["GET","POST"])
+def admin_loc():
+    if current_user.is_authenticated == True:
+        update_loc()
+        return
+    else:
+        return
+
+@app.route("/loc/get", methods=["GET"])
+def loc_get():
+    get_loc()
+    return
 
 @app.route("/admin/careers", methods=["GET", "POST"])
 def admin_careers():
@@ -106,6 +116,27 @@ def edit_career(career_id):
             pass
     else:
         return redirect(url_for("index"))
+
+@app.route("/admin/careers/update", methods=["POST"])
+def admin_careers_update():
+    if current_user.is_authenticated == True:
+         update_job()
+         return
+    else:
+        return
+
+@app.route("/admin/careers/add", methods=["POST"])
+def admin_careers_add():
+    if current_user.is_authenticated == True:
+        new_job()
+        return
+    else:
+        return
+
+@app.route("/job/get", methods=["GET"])
+def job_get():
+    get_job()
+    return
 
 @app.route("/careers", methods=['GET'])
 def careers():
