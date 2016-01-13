@@ -12,7 +12,7 @@ var ABELSONMECHANICAL = (function(){
         careerNewForm = document.getElementById('careerNewForm');
         //careerEditForm = document.getElementById('careerNewForm');
 
-    var Evt = new EventEmitter2();
+  //  var Evt = new EventEmitter2();
 
   function animationController() {
     select = $('#loc_edit');
@@ -26,17 +26,21 @@ var ABELSONMECHANICAL = (function(){
 
     function careerEdit(){
       var data = new FormData(form);
-      $.ajax({type: 'POST',url: '/my/url',data: data});
+      $.ajax({type: 'POST',url: '/admin/careers/update',data: data});
     }
 
     function careerNew(){
       var data = new FormData(form);
-      $.ajax({type: 'POST',url: '/my/url',data: data});
+      if (data.name != null && data.description != null){
+        $.ajax({type: 'POST',url: '/admin/careers/add',data: data});
+        return
+      }
+      alert("Please enter a name and/or description.");
     }
 
     function locEdit(){
       var data = new FormData(form);
-      $.ajax({type: 'POST',url: '/my/url',data: data});
+      $.ajax({type: 'POST',url: '/admin/loc',data: data});
     }
 
   function init() {

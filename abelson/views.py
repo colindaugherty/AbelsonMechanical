@@ -74,8 +74,8 @@ def admin():
     else:
         return redirect(url_for('index'))
 
-@app.route("/admin/loc", methods=["GET","POST"])
-def admin_loc():
+@app.route("/admin/loc", methods=["POST"])
+def admin_loc(loc):
     if current_user.is_authenticated == True:
         update_loc()
         return
@@ -126,7 +126,7 @@ def admin_careers_update():
         return
 
 @app.route("/admin/careers/add", methods=["POST"])
-def admin_careers_add():
+def admin_careers_add(job):
     if current_user.is_authenticated == True:
         new_job()
         return
