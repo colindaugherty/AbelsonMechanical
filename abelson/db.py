@@ -25,3 +25,38 @@ def get_user(username):
     clean_up(db, c)
 
     return result
+
+def new_job(job_data):
+    db, c = connect()
+
+    clean_up(db, c)
+
+    return result
+
+def update_job(job_data):
+    db, c = connect()
+
+    clean_up(db, c)
+
+    return result
+
+def get_job():
+    db, c = connect()
+
+    clean_up(db, c)
+
+    return result
+
+def update_loc(loc_data):
+    db, c = connect()
+
+    clean_up(db, c)
+
+    return result
+
+def get_loc():
+    db, c = connect()
+
+    clean_up(db, c)
+
+    return result
