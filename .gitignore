@@ -60,3 +60,6 @@ target/
 
 # NPM
 node_modules/
+
+# YoYo Migrations
+yoyo.ini
