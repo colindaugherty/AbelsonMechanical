@@ -31,9 +31,9 @@ var ABELSONMECHANICAL = (function(){
 
     function careerNew(){
       var data = new FormData(form);
-      if (data.name != null && data.description != null){
+      if (data.name !== null && data.description !== null){
         $.ajax({type: 'POST',url: '/admin/careers/add',data: data});
-        return
+        return;
       }
       alert("Please enter a name and/or description.");
     }
