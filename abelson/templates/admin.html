@@ -9,10 +9,7 @@
 {% block content %}
   <main>
     <h1>Welcome, {{ current_user.name }}</h1>
-    <h3>This is the admin page. You can set up anything on the website from here.</h3>
-    <hr>
-    <p>Hello, {{current_user.name}} this is your new settings page! Pretty much. Anyways, from here on all changes will effect the entire website, so please be careful!<br>We have a fallback alternative if everything breaks, but I would rather not initiate that program.</p>
-    <hr>
+    <h3>This is the admin page.</h3>
     <form id="adminform" action="/admin" method="post">
       <label>
         <span>Select a location</span>
@@ -22,27 +19,37 @@
           <option>Evensville</option>
         <select>
       </label>
-
       <div id="edit_div" class="hidden">
-      <label>
-        <span>Address:</span>
-          <input type="text" name="edit_loc_address">
-      </label>
-      <label>
-        <span>Fax:</span>
-        <input type="text" name="edit_loc_fax">
-      </label>
-      <label>
-        <span>Phone:</span>
-        <input type="text" name="edit_loc_phone">
-      </label>
-      <label>
-        <span>Email:</span>
-        <input type="text" name="edit_loc_email">
-      </label>
-        <button type="submit" name="button">Update</button>
+        <ul>
+          <li>
+            <label>
+              <span>Address:</span>
+              <input type="text" name="edit_loc_address">
+            </label>
+          </li>
+          <li>
+            <label>
+              <span>Fax:</span>
+              <input type="text" name="edit_loc_fax">
+            </label>
+          </li>
+          <li>
+            <label>
+              <span>Phone:</span>
+              <input type="text" name="edit_loc_phone">
+            </label>
+          </li>
+          <li>
+            <label>
+              <span>Email:</span>
+              <input type="text" name="edit_loc_email">
+            </label>
+          </li>
+          <li>
+            <button type="submit" name="button">Update</button>
+          </li>
+        </ul>
       </div>
     </form>
-
   </main>
 {% endblock %}
