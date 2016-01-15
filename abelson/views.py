@@ -41,10 +41,7 @@ def load_user(id):
 
 @app.route('/login')
 def login():
-    if current_user.is_authenticated:
-        return redirect(url_for('admin'))
-    else:
-        return render_template('login.html')
+    return render_template('login.html')
 
 @app.route('/login/check', methods=['POST'])
 def login_check():
@@ -69,70 +66,44 @@ def index():
 
 @app.route("/admin", methods=["GET"])
 def admin():
-    if current_user.is_authenticated == True:
-        return render_template('admin.html')
-    else:
-        return redirect(url_for('index'))
+    return render_template('admin.html')
+
 
 @app.route("/admin/loc", methods=["POST"])
 def admin_loc(loc):
-    if current_user.is_authenticated == True:
-        db.update_loc()
-        return jsonify(status="true")
-    else:
-        return jsonify(status="false")    
+    db.update_loc()
+    return jsonify(status="201", msg="Updated Location's information"), 201
 
 
 @app.route("/loc/get", methods=["GET"])
 def loc_get():
     db.get_loc()
-    return jsonify(status="hi")
+    return jsonify(status="200"), 200
 
-@app.route("/admin/careers", methods=["GET", "POST"])
+@app.route("/admin/careers", methods=["GET"])
 def admin_careers():
-    if current_user.is_authenticated == True:
-        if request.method == "GET":
-            return render_template('admin_careers.html')
-        if request.method == "POST":
-            pass
-    else:
-        return redirect(url_for('index'))
+    return render_template('admin_careers.html')
+
 
 @app.route("/admin/careers/new", methods=["GET", "POST"])
 def admin_careers_new():
-    if current_user.is_authenticated == True:
-        if request.method == "GET":
-            return render_template("admin_careers_new.html")
-        if request.method == "POST":
-            pass
-    else:
-        return redirect(url_for('index'))
+    return render_template("admin_careers_new.html")
 
 @app.route("/admin/careers/<int:career_id>", methods=["GET", "POST"])
 def edit_career(career_id):
-    if current_user.is_authenticated == True:
-        if request.method == "GET":
-            return render_template("admin_careers_edit")
-        if request.method == "POST":
-            pass
-    else:
-        return redirect(url_for("index"))
+    return render_template("admin_careers_edit")
+
 
 @app.route("/admin/careers/update", methods=["POST"])
 def admin_careers_update():
-    if current_user.is_authenticated == True:
          db.update_job()
-         return jsonify(status="true")
-    else:
-        return jsonify(status="false")
+         return jsonify(status="201", msg="Career Updated"), 201
 
 @app.route("/admin/careers/add", methods=["POST"])
 def admin_careers_add(data):
-    if current_user.is_authenticated == True:
-        if data.name is not null:
-            if data.description is not null:
-                db.new_job(data)
-                return jsonify(status="true")
+    if data.name != "" and data.description != "":
+        db.new_job(data)
+        return jsonify(status="201", msg="Job added successfully."), 201
     else:
         return jsonify(status="false")
 
