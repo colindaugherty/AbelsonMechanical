@@ -80,7 +80,8 @@ def admin_loc(loc):
         db.update_loc()
         return jsonify(status="true")
     else:
-        return jsonify(status="false")
+        return jsonify(status="false")    
+
 
 @app.route("/loc/get", methods=["GET"])
 def loc_get():
@@ -126,10 +127,12 @@ def admin_careers_update():
         return jsonify(status="false")
 
 @app.route("/admin/careers/add", methods=["POST"])
-def admin_careers_add():
+def admin_careers_add(data):
     if current_user.is_authenticated == True:
-        db.new_job()
-        return jsonify(status="true")
+        if data.name is not null:
+            if data.description is not null:
+                db.new_job(data)
+                return jsonify(status="true")
     else:
         return jsonify(status="false")
 

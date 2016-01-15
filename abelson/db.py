@@ -26,9 +26,9 @@ def get_user(username):
 
     return result
 
-def new_job():
+def new_job(data):
     db, c = connect()
-
+    c.execute('''INSERT INTO job VALUE (data.name, data.location, data.description)''')
     clean_up(db, c)
 
     pass

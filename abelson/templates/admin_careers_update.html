@@ -1,0 +1,32 @@
+{% set menu = 'main' %}
+{% extends "base.html" %}
+{% block head %}
+  {{ super() }}
+{% endblock %}
+{% block title %}- Admin Careers New{% endblock %}
+{% block content %}
+    <main>
+      <h1>Job Postings</h1>
+      <form>
+        {% for job in jobs %}
+        <label>
+          <span>Job Name:</span>
+          <input type="text" placeholder={{job.name}} name="name">
+        </label>
+        <label>
+          <span>Location:</span>
+          <select name="location">
+            <option value="Louisville, KY">Louisville, KY</option>
+            <option value="Evansville, IN">Evansville, IN</option>
+          </select>
+        <label>
+          <span>placeholder</span>
+          <textarea name="description" rows="8" cols="40" placeholder={{job.Description}}></textarea>
+        </label>
+        {% endfor %}
+      </form>
+    </main>
+{% endblock %}
+{% block footer %}
+  {{ super() }}
+{% endblock %}
