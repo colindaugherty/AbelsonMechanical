@@ -26,12 +26,12 @@ def get_user(username):
 
     return result
 
-def new_job(job_data):
+def new_job():
     db, c = connect()
 
     clean_up(db, c)
 
-    return result
+    pass
 
 def update_job(job_data):
     db, c = connect()

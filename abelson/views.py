@@ -77,15 +77,15 @@ def admin():
 @app.route("/admin/loc", methods=["POST"])
 def admin_loc(loc):
     if current_user.is_authenticated == True:
-        update_loc()
-        return
+        db.update_loc()
+        return jsonify(status="true")
     else:
-        return
+        return jsonify(status="false")
 
 @app.route("/loc/get", methods=["GET"])
 def loc_get():
-    get_loc()
-    return
+    db.get_loc()
+    return jsonify(status="hi")
 
 @app.route("/admin/careers", methods=["GET", "POST"])
 def admin_careers():
@@ -120,23 +120,23 @@ def edit_career(career_id):
 @app.route("/admin/careers/update", methods=["POST"])
 def admin_careers_update():
     if current_user.is_authenticated == True:
-         update_job()
-         return
+         db.update_job()
+         return jsonify(status="true")
     else:
-        return
+        return jsonify(status="false")
 
 @app.route("/admin/careers/add", methods=["POST"])
-def admin_careers_add(job):
+def admin_careers_add():
     if current_user.is_authenticated == True:
-        new_job()
-        return
+        db.new_job()
+        return jsonify(status="true")
     else:
-        return
+        return jsonify(status="false")
 
 @app.route("/job/get", methods=["GET"])
 def job_get():
-    get_job()
-    return
+    db.get_job()
+    return jsonify(status="hi")
 
 @app.route("/careers", methods=['GET'])
 def careers():

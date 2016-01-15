@@ -36,6 +36,7 @@ var ABELSONMECHANICAL = (function(){
         return;
       }
       alert("Please enter a name and/or description.");
+      return;
     }
 
     function locEdit(){
