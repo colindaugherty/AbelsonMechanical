@@ -77,7 +77,7 @@ def admin_loc(loc):
 
 @app.route("/loc/get", methods=["GET"])
 def loc_get():
-    db.get_loc()
+    loc = db.get_loc()
     return jsonify(status="200"), 200
 
 @app.route("/admin/careers", methods=["GET"])
@@ -105,11 +105,11 @@ def admin_careers_add(data):
         db.new_job(data)
         return jsonify(status="201", msg="Job added successfully."), 201
     else:
-        return jsonify(status="false")
+        return jsonify(status="400", msg="Please fill in all fields."), 400
 
 @app.route("/job/get", methods=["GET"])
 def job_get():
-    db.get_job()
+    jobs = db.get_job()
     return jsonify(status="hi")
 
 @app.route("/careers", methods=['GET'])

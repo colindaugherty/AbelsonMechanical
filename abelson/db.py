@@ -39,13 +39,15 @@ def new_job(data):
 def update_job(job_data):
     db, c = connect()
 
+    db.commit()
     clean_up(db, c)
 
-    return result
+    pass
 
 def get_job():
     db, c = connect()
-
+    for a in c.execute('''SELECT jb FROM job ORDER BY id''')
+        result.append(a)
     clean_up(db, c)
 
     return result
@@ -53,13 +55,15 @@ def get_job():
 def update_loc(loc_data):
     db, c = connect()
 
+    db.commit()
     clean_up(db, c)
 
-    return result
+    pass
 
 def get_loc():
     db, c = connect()
-
+    for s in c.execute('''SELECT lc FROM loc ORDER BY id''')
+        result.append(s)
     clean_up(db, c)
 
     return result

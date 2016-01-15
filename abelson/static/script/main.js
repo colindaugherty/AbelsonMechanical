@@ -27,7 +27,7 @@ var ABELSONMECHANICAL = (function(){
     function careerEdit(){
       var data = new FormData(form);
       $.ajax({type: 'POST',url: '/admin/careers/update',data: data});
-    } 
+    }
 
     function careerNew(){
       var data = new FormData(form);
@@ -39,6 +39,18 @@ var ABELSONMECHANICAL = (function(){
       var data = new FormData(form);
       $.ajax({type: 'POST',url: '/admin/loc',data: data});
       return;
+    }
+
+    function get_job(){
+      var jobs;
+      jobs = $.ajax({type: 'GET', utl: '/job/get'});
+      return jobs;
+    }
+
+    function get_loc(){
+      var loc;
+      loc = $.ajax({type: 'GET', url: '/loc/get'});
+      return loc;
     }
 
   function init() {
