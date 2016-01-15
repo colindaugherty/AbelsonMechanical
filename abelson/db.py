@@ -28,10 +28,13 @@ def get_user(username):
 
 def new_job(data):
     db, c = connect()
-    c.execute('''INSERT INTO job VALUE (data.name, data.location, data.description)''')
+    c.execute('''INSERT INTO job VALUE (%s, %s, %s)''', (data.name, data.location, data.description))
+    db.commit()
     clean_up(db, c)
 
     pass
+
+# UPDATE users SET name=%s email=%s WHERE id=%s
 
 def update_job(job_data):
     db, c = connect()
