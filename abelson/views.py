@@ -2,7 +2,7 @@ from flask import flash, render_template, request, session, redirect, url_for, j
 from flask.ext.login import LoginManager, UserMixin, current_user, login_user, logout_user
 
 from abelson import app, bcrypt
-import abelson.db
+from . import db
 
 login_manager = LoginManager()
 login_manager.init_app(app)
@@ -77,8 +77,11 @@ def admin_loc(loc):
 
 @app.route("/loc/get", methods=["GET"])
 def loc_get():
-    loc = db.get_loc()
-    return jsonify(status="200"), 200
+    try:
+        loc = db.get_loc()
+        return jsonify(status="200", location=loc), 200
+    except Exception as e:
+        return jsonify(status="500", message=str(e)), 500
 
 @app.route("/admin/careers", methods=["GET"])
 def admin_careers():

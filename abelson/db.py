@@ -6,7 +6,7 @@ user = ['username', 'password']
 def make_dict(tup_list, fields):
     return [dict(zip(fields, d)) for d in tup_list]
 
-def connect(db_file):
+def connect():
     db = sqlite3.connect(db_file)
     c = db.cursor()
 
@@ -46,8 +46,7 @@ def update_job(job_data):
 
 def get_job():
     db, c = connect()
-    for a in c.execute('''SELECT jb FROM job ORDER BY id''')
-        result.append(a)
+    result = c.execute('''SELECT jb FROM job ORDER BY id''')
     clean_up(db, c)
 
     return result
@@ -62,8 +61,8 @@ def update_loc(loc_data):
 
 def get_loc():
     db, c = connect()
-    for s in c.execute('''SELECT lc FROM loc ORDER BY id''')
-        result.append(s)
+    c.execute('''SELECT * FROM loc ORDER BY id''')
+    result = c.fetchall()
     clean_up(db, c)
 
     return result
