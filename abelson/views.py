@@ -1,8 +1,7 @@
 from flask import flash, render_template, request, session, redirect, url_for, jsonify
 from flask.ext.login import LoginManager, UserMixin, current_user, login_user, logout_user
 
-from abelson import app 
-#bcrypt
+from abelson import app, bcrypt
 from . import db
 
 login_manager = LoginManager()
@@ -11,7 +10,7 @@ login_manager.init_app(app)
 class UserNotFoundError(Exception):
     pass
 
-# Simple user class base on UserMixin
+
 # http://flask-login.readthedocs.org/en/latest/_modules/flask/ext/login.html#UserMixin
 class User(UserMixin):
     '''Simple User class'''
@@ -104,9 +103,10 @@ def admin_careers_update():
          return jsonify(status="201", msg="Career Updated"), 201
 
 @app.route("/admin/careers/add", methods=["POST"])
-def admin_careers_add(data):
-    if data.name != "" and data.description != "":
-        db.new_job(data)
+def admin_careers_add():
+    if request.form['name']!= "" and request.form['description'] != "":
+        db.new_job(request.form)
+        #print(request.form)
         return jsonify(status="201", msg="Job added successfully."), 201
     else:
         return jsonify(status="400", msg="Please fill in all fields."), 400

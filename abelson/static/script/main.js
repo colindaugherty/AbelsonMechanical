@@ -59,6 +59,12 @@ var ABELSONMECHANICAL = (function() {
     //  AdminForm.addEventListener("submit", locEdit);
     //  careerNewForm.addEventListener("submit", careerNew);
     window.get_loc = get_loc;
+    if (document.URL.endsWith("/careers")){
+     var jobs = get_job(); 
+    }
+    if (documet.URL.endsWith){
+      
+    }
   }
 
   return {
