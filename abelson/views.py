@@ -94,10 +94,10 @@ def admin_careers_new():
 
 @app.route("/admin/careers/<id>", methods=["GET", "POST"])
 def admin_careers_update(id):
-    if (methode == "GET"):
+    if (request.method == "GET"):
         job = db.get_job_by_id(id) 
         return render_template("admin_careers_edit", jobs=job)   
-    if (methode == "POST"):
+    if (request.method == "POST"):
          db.update_job(id)
          return jsonify(status="201", msg="Career Updated"), 201
 

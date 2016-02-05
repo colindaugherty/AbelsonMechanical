@@ -66,14 +66,12 @@ def get_jobs():
 
     return results
 
-def get_job_by_id(jobx_id):
+def get_job_by_id(job_id):
     db, c = connect()
     c.execute('SELECT * FROM job WHERE id == job_id')
     results = c.fetchall()
     results = mapify_query_results(JOBS, results)
-    clean_up(db, c)
-
-    return results
+    clean_up()
 
 def update_loc(loc_data):
     db, c = connect()
