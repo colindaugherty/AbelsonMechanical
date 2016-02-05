@@ -1,10 +1,22 @@
 import sqlite3
 
 db_file = 'abelson.sqlite'
-user = ['username', 'password']
+USER = ['username', 'password']
+JOBS = ['id', 'name', 'loc', 'description']
 
 def make_dict(tup_list, fields):
     return [dict(zip(fields, d)) for d in tup_list]
+
+def mapify_query_results(fields, results):
+    output = []
+
+    for result in results:
+        entry = {}
+        for i in range(len(fields)):
+            entry[fields[i]] = result[i]
+        output.append(entry)
+
+    return output
 
 def connect():
     db = sqlite3.connect(db_file)
@@ -21,7 +33,7 @@ def get_user(username):
 
     c.execute("SELECT * FROM user WHERE username=?", (username,))
     result = c.fetchone()
-    result = make_dict(result, user)
+    result = make_dict(result, USER)
     clean_up(db, c)
 
     return result
@@ -43,14 +55,25 @@ def update_job(job_data):
     db.commit()
     clean_up(db, c)
 
-    pass
+    return result
 
-def get_job():
+def get_jobs():
     db, c = connect()
-    result = c.execute('''SELECT jb FROM job ORDER BY id''')
+    c.execute('SELECT * FROM job')
+    results = c.fetchall()
+    results = mapify_query_results(JOBS, results)
     clean_up(db, c)
 
-    return result
+    return results
+
+def get_job_by_id(jobx_id):
+    db, c = connect()
+    c.execute('SELECT * FROM job WHERE id == job_id')
+    results = c.fetchall()
+    results = mapify_query_results(JOBS, results)
+    clean_up(db, c)
+
+    return results
 
 def update_loc(loc_data):
     db, c = connect()

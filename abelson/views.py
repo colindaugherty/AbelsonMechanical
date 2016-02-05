@@ -85,21 +85,20 @@ def loc_get():
 
 @app.route("/admin/careers", methods=["GET"])
 def admin_careers():
-    return render_template('admin_careers.html')
+    return render_template('admin_careers.html', jobs=db.get_jobs() )
 
 
 @app.route("/admin/careers/new", methods=["GET", "POST"])
 def admin_careers_new():
     return render_template("admin_careers_new.html")
 
-@app.route("/admin/careers/<int:career_id>", methods=["GET", "POST"])
-def edit_career(career_id):
-    return render_template("admin_careers_edit")
-
-
-@app.route("/admin/careers/update", methods=["POST"])
-def admin_careers_update():
-         db.update_job()
+@app.route("/admin/careers/<id>", methods=["GET", "POST"])
+def admin_careers_update(id):
+    if (methode == "GET"):
+        job = db.get_job_by_id(id) 
+        return render_template("admin_careers_edit", jobs=job)   
+    if (methode == "POST"):
+         db.update_job(id)
          return jsonify(status="201", msg="Career Updated"), 201
 
 @app.route("/admin/careers/add", methods=["POST"])
@@ -113,8 +112,9 @@ def admin_careers_add():
 
 @app.route("/job/get", methods=["GET"])
 def job_get():
+    print("got here")
     jobs = db.get_job()
-    return jsonify(status="hi")
+    return jsonify(status="200", msg="got the jobs"), 200
 
 @app.route("/careers", methods=['GET'])
 def careers():

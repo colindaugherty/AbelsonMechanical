@@ -61,9 +61,7 @@ var ABELSONMECHANICAL = (function() {
     window.get_loc = get_loc;
     if (document.URL.endsWith("/careers")){
      var jobs = get_job(); 
-    }
-    if (documet.URL.endsWith){
-      
+     console.log(jobs);
     }
   }
 
