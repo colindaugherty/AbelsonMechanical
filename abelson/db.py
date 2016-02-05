@@ -71,7 +71,7 @@ def get_job_by_id(job_id):
     c.execute('SELECT * FROM job WHERE id == ?', (job_id,))
     results = c.fetchall()
     results = mapify_query_results(JOBS, results)
-    clean_up()
+    clean_up(db, c)
 
 def update_loc(loc_data):
     db, c = connect()
