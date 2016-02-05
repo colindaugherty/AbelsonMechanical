@@ -50,13 +50,14 @@ def new_job(data):
 
 # UPDATE users SET name=%s email=%s WHERE id=%s
 
-def update_job(job_data):
+def update_job(job_data, job_id):
     db, c = connect()
-    c.execute('''UPDATE job SET name = ? WHERE description = ?''', (job_data['name'], ))
+    c.execute('''UPDATE job SET name = ?, description = ?, loc = ? WHERE id == ?''',
+              (job_data['name'], job_data['description'], job_data['location'], job_id))
     db.commit()
     clean_up(db, c)
 
-    return result
+    pass
 
 def get_jobs():
     db, c = connect()

@@ -10,7 +10,7 @@
     <a href="{{url_for('admin_careers_new')}}">+</a>
     <ul>
       {% for job in jobs%}
-      <li><a href="/admin/careers/{{job.id}}">{{job.name}}</a><span>{{job.loc}}</span><span class="deleteX">X</span></li>
+      <li><a href="/admin/careers/{{job.id}}">{{job.name}}</a><span>{{job.loc}}</span><i class="cdi cdi-times-circle cdi-lg"></i></li>
       {% endfor %}
     </ul>
   </main>
