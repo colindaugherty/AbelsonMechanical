@@ -73,6 +73,8 @@ def get_job_by_id(job_id):
     results = mapify_query_results(JOBS, results)
     clean_up(db, c)
 
+    return results
+
 def update_loc(loc_data):
     db, c = connect()
 
