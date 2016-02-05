@@ -121,4 +121,4 @@ def job_get():
 
 @app.route("/careers", methods=['GET'])
 def careers():
-    return render_template('careers.html')
+    return render_template('careers.html', jobs=db.get_jobs() )

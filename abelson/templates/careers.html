@@ -6,16 +6,13 @@
 {% block title %}- Careers{% endblock %}
 {% block content %}
   <main>
+   {% for job in jobs %}
     <section>
-      <span>job 1</span>
-      <span>location</span>
-      <p>Lorem ipsum dolor sit amet, te meliore dissentias vis, nam putant verear appetere ex, est ex nisl consulatu. Pro verear aliquip in, pri fabellas aliquando eloquentiam an. An facete omittantur consectetuer eos, pro no affert assentior persequeris, et denique forensibus sea. Eam ut oporteat voluptaria, ei latine scripta nec, te aliquip noluisse torquatos sea. Saepe constituam vix in, has et suas appareat, cu fugit decore inimicus ius. Nec id suscipit moderatius dissentiet, doming argumentum vituperatoribus quo ea.</p>
+            <span>{{job.name}}</span>
+            <span>{{job.loc}}</span>
+            <p>{{job.description}}</p>
     </section>
-    <section>
-      <span>job 2</span>
-      <span>location</span>
-      <p>Lorem ipsum dolor sit amet, te meliore dissentias vis, nam putant verear appetere ex, est ex nisl consulatu. Pro verear aliquip in, pri fabellas aliquando eloquentiam an. An facete omittantur consectetuer eos, pro no affert assentior persequeris, et denique forensibus sea. Eam ut oporteat voluptaria, ei latine scripta nec, te aliquip noluisse torquatos sea. Saepe constituam vix in, has et suas appareat, cu fugit decore inimicus ius. Nec id suscipit moderatius dissentiet, doming argumentum vituperatoribus quo ea.</p>
-    </section>
+    {% endfor %}
     <form>
       <input type="text">
       <input type="text">
