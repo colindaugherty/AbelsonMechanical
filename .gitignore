@@ -63,3 +63,5 @@ node_modules/
 
 # YoYo Migrations
 yoyo.ini
+
+*.swp

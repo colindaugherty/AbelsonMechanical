@@ -5,6 +5,7 @@
 {% endblock %}
 {% block title %}- Admin Careers New{% endblock %}
 {% block content %}
+<<<<<<< HEAD
 <main>
   <h1>Job Postings</h1>
   <form  method="post" >
@@ -25,6 +26,29 @@
       <button type="submit">Update</button>
   </form>
 </main>
+=======
+    <main>
+      <h1>Job Postings</h1>
+      <form>
+        {% for job in jobs %}
+        <label>
+          <span>Job Name:</span>
+          <input type="text" placeholder={{job.name}} name="name">
+        </label>
+        <label>
+          <span>Location:</span>
+          <select name="location">
+            <option value="Louisville, KY">Louisville, KY</option>
+            <option value="Evansville, IN">Evansville, IN</option>
+          </select>
+        <label>
+          <span>placeholder</span>
+          <textarea name="description" rows="8" cols="40" placeholder={{job.description}}></textarea>
+        </label>
+      </form>
+      {% endfor %}
+    </main>
+>>>>>>> 15094d343c5647eddb684695ea3950a148af8b99
 {% endblock %}
 {% block footer %}
 {{ super() }}
