@@ -98,8 +98,11 @@ def admin_careers_update(id):
         job = db.get_job_by_id(id) 
         return render_template("admin_careers_update.html", job = job[0])   
     if (request.method == "POST"):
-         db.update_job(id)
-         return jsonify(status="201", msg="Career Updated"), 201
+        if request.form['name'] != "" and request.form['description'] != "":
+            db.update_job(request.form, id)
+            return jsonify(status="201", msg="Career Updated"), 201
+        else:
+            return jsonify(status="400", msg="Please fill in all fields."), 400
 
 @app.route("/admin/careers/add", methods=["POST"])
 def admin_careers_add():
