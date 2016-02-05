@@ -3,6 +3,7 @@ import sqlite3
 db_file = 'abelson.sqlite'
 USER = ['username', 'password']
 JOBS = ['id', 'name', 'loc', 'description']
+LOC = ['id', 'name', 'map', 'phone', 'fax', 'adress', 'email']
 
 def make_dict(tup_list, fields):
     return [dict(zip(fields, d)) for d in tup_list]
@@ -88,6 +89,7 @@ def get_loc():
     db, c = connect()
     c.execute('''SELECT * FROM loc ORDER BY id''')
     result = c.fetchall()
+    result = mapify_query_results(LOC, result)
     clean_up(db, c)
 
     return result

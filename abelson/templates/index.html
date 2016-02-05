@@ -8,22 +8,16 @@
 {% block content %}
   <main>
     <h1>Placeholder</h1>
-    <section>
-      <h4>Location 1</h4>
-      <span>Map</span>
-      <span>address</span>
-      <span>fax</span>
-      <span>phone</span>
-      <span>email</span>
-    </section>
-    <section>
-      <h4>Location 2</h4>
-      <span>Map</span>
-      <span>address</span>
-      <span>fax</span>
-      <span>phone</span>
-      <span>email</span>
-    </section>
+    {% for loc in locs %}
+        <section>
+         <h4>{{loc.name}}</h4>
+         <span>{{loc.map}}</span>
+         <span>{{loc.address}}</span>
+         <span>{{loc.fax}}</span>
+         <span>{{loc.phone}}</span>
+         <span>{{loc.email}}</span>
+        </section>
+    {% endfor %}
     <form>
       <input type="text">
       <input type="text">
