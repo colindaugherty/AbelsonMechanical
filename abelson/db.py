@@ -68,7 +68,7 @@ def get_jobs():
 
 def get_job_by_id(job_id):
     db, c = connect()
-    c.execute('SELECT * FROM job WHERE id == job_id')
+    c.execute('SELECT * FROM job WHERE id == ?', (job_id,))
     results = c.fetchall()
     results = mapify_query_results(JOBS, results)
     clean_up()
