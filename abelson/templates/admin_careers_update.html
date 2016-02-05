@@ -7,11 +7,10 @@
 {% block content %}
 <main>
   <h1>Job Postings</h1>
-  {% for job in jobs %}
-  <form>
+  <form  method="post" >
     <label>
       <span>Job Name:</span>
-      <input type="text" placeholder={{job.name}} name="name">
+      <input type="text" value="{{job.name}}" name="name">
     </label>
     <label>
       <span>Location:</span>
@@ -21,10 +20,10 @@
       </select>
       <label>
 	<span>placeholder</span>
-	<textarea name="description" rows="8" cols="40" placeholder={{job.description}}></textarea>
+	<textarea name="description" rows="8" cols="40">{{job.description}}</textarea>
       </label>
+      <button type="submit">Update</button>
   </form>
-  {% endfor %}
 </main>
 {% endblock %}
 {% block footer %}

@@ -51,7 +51,7 @@ def new_job(data):
 
 def update_job(job_data):
     db, c = connect()
-
+    c.execute('''UPDATE job SET name = ? WHERE description = ?''', (job_data['name'], ))
     db.commit()
     clean_up(db, c)
 
