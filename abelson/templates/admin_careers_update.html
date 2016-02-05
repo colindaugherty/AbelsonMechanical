@@ -1,7 +1,7 @@
 {% set menu = 'main' %}
 {% extends "base.html" %}
 {% block head %}
-  {{ super() }}
+{{ super() }}
 {% endblock %}
 {% block title %}- Admin Careers New{% endblock %}
 {% block content %}
@@ -23,10 +23,10 @@
           <span>placeholder</span>
           <textarea name="description" rows="8" cols="40" placeholder={{job.description}}></textarea>
         </label>
-        {% endfor %}
       </form>
+      {% endfor %}
     </main>
 {% endblock %}
 {% block footer %}
-  {{ super() }}
+{{ super() }}
 {% endblock %}
