@@ -96,7 +96,7 @@ def admin_careers_new():
 def admin_careers_update(id):
     if (request.method == "GET"):
         job = db.get_job_by_id(id) 
-        return render_template("admin_careers_edit", jobs=job)   
+        return render_template("admin_careers_update.html", jobs=job)   
     if (request.method == "POST"):
          db.update_job(id)
          return jsonify(status="201", msg="Career Updated"), 201
