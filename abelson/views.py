@@ -125,7 +125,7 @@ def careers():
 
 @app.route("/Q", methodes=['POST'])
 def Q():
-    if request.form['']!= "" and request.form['']!= "" and request.form['']!= "" and request.form['']!= "" and request.form['']!= "" and request.form['']!= "" and request.form['']!= "":
+    if request.form['firstname']!= "" and request.form['lastname']!= "" and request.form['email']!= "" and request.form['phone']!= "" and request.form['company']!= "" and request.form['industry']!= "" and request.form['msg']!= "":
         return jsonify(status="201", msg="Email sent."), 201
     else:
         return jsonify(status="400", msg="Please fill in all fields."), 400
