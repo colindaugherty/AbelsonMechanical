@@ -122,3 +122,10 @@ def job_get():
 @app.route("/careers", methods=['GET'])
 def careers():
     return render_template('careers.html', jobs=db.get_jobs() )
+
+@app.route("/Q", methodes=['POST'])
+def Q():
+    if request.form['']!= "" and request.form['']!= "" and request.form['']!= "" and request.form['']!= "" and request.form['']!= "" and request.form['']!= "" and request.form['']!= "":
+        return jsonify(status="201", msg="Email sent."), 201
+    else:
+        return jsonify(status="400", msg="Please fill in all fields."), 400

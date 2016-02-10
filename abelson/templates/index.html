@@ -18,18 +18,34 @@
          <span>{{loc.email}}</span>
         </section>
     {% endfor %}
-    <form>
-      <input type="text">
-      <input type="text">
-      <input type="text">
-      <input type="text">
-      <input type="text">
-      <input type="text">
-      <select name="location">
-        <option>loc 1</option>
-        <option>loc 2</option>
-      </select>
-      <input type="text"></input>
+    <form id="contact" action="/Q" method="POST">
+      <label>    
+        <input type="text" placeholder="First Name" name="firstname">
+      </label>
+      <label>
+         <input type="text" placeholder="Last Name" name="lastname">
+      </label>   
+      <label>
+         <input type="text" placeholder="Email Address" name="email">
+      </label>
+      <label>
+         <input type="text" placeholder="Phone Number" name="phone">
+      </label>
+      <label>
+         <input type="text" placeholder="Company Name" name="company">
+      </label>
+      <label>
+         <input type="text" placeholder="Industry" name="industry">
+      </label>
+      <label>
+         <select name="location">
+            <option>loc 1</option>
+            <option>loc 2</option>
+         </select>
+      </label>
+      <label>
+         <input type="text"></input>
+      </label>
       <button type="submit">Send</button>
     </form>
   </main>
