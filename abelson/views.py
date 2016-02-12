@@ -2,7 +2,7 @@ from flask import flash, render_template, request, session, redirect, url_for, j
 from flask.ext.login import LoginManager, UserMixin, current_user, login_user, logout_user
 
 from abelson import app, bcrypt
-from . import db
+from . import db, email
 
 login_manager = LoginManager()
 login_manager.init_app(app)
@@ -125,7 +125,17 @@ def careers():
 
 @app.route("/Q", methodes=['POST'])
 def Q():
-    if request.form['firstname']!= "" and request.form['lastname']!= "" and request.form['email']!= "" and request.form['phone']!= "" and request.form['company']!= "" and request.form['industry']!= "" and request.form['msg']!= "":
+    if formCheck(request.form):
+        email.sendQ(request.form)
         return jsonify(status="201", msg="Email sent."), 201
+    else:
+        return jsonify(status="400", msg="Please fill in all fields."), 400
+
+@app.route("/careers/send", methods=["POST"])
+def careers_send():
+    if formCheck(request.form):
+        file= fileEncode(request.file);
+        email.sendAp(request.form, request.file)
+        return jsonify(status="201", msg="Aplication submited."), 201
     else:
         return jsonify(status="400", msg="Please fill in all fields."), 400

@@ -5,23 +5,27 @@ api_key=os.environ['']
 api_secret=os.environ['']
 mailjet=Client(api_key, api_secret)
 
-def sendQ(fn, ln, e, p, c, i, m):
+def sendQ(msg):
     data={
-        "FromEmail": e,
-        "FromName": fn + " " + ln,
-        "Subject": "Mesage from " + fn + " " + ln,
-        'Text-part': m,
+        "FromEmail": msg['email'],
+        "FromName": "{0} {1}".format(msg['firstname'], msg['lastname']),
+        "Subject": "Mesage from {0} {1}".format(msg['firstname'],
+                                                msg['lastname']),
+        'Text-part': msg["msg"],
         "Recipients":[{"Email":"abelsonmec@gmail.com"}]
     }
     result = mailjet.send.create(data=data)
 
-def sendAp(fn, ln, e, p, po, r, m):
+def sendAp(ap, r):
     data={
-        "FromEmail": e,
-        "FromeName": fn + " " + ln,
-        "Subject": 'Apliction for ' + fn + " " + ln,
-        "Text-part": m,
+        "FromEmail": ap["email"],
+        "FromeName": "{0} {1}".format(ap["firstname"], ap["lastname"]),
+        "Subject": 'Apliction for {0} {1}'.format(ap["firstname"], ap["lastname"]),
+        "Text-part": ap["msg"],
         "Recipients":[{"Email": "abelsonmec@gmail.com"}],
-        "Attchments":[{"Filename": r}]
-    } 
+        "Attchments":[{
+            "Content-type":"pdf",
+            "Filename": "aplication",
+            "content": r}]
+    }
     result = mailjet.sen.create(data=data)
