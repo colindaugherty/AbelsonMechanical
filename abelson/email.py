@@ -1,4 +1,4 @@
-from mailjet import Client
+from mailjet_rest import Client
 import os
 
 api_key=os.environ['']
@@ -28,4 +28,4 @@ def sendAp(ap, r):
             "Filename": "aplication",
             "content": r}]
     }
-    result = mailjet.sen.create(data=data)
+    result = mailjet.send.create(data=data)
