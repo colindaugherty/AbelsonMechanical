@@ -13,21 +13,35 @@
             <p>{{job.description}}</p>
     </section>
     {% endfor %}
-    <form>
-      <input type="text">
-      <input type="text">
-      <input type="text">
-      <input type="text">
-      <select>
+    <form action"/careers/send" method="POST">
+      <label>
+         <input type="text" name="firstname">
+      </label>
+      <label>
+      <input type="text" name="lastname">
+      </label>
+      <label>
+      <input type="text" name="email">
+      </label>
+      <label>
+      <input type="text" name="phone">
+      </label>
+      <label>
+      <select name="position">
         <optgroup label="loc 1">
-          <option>job 1</option>
+          <option value="1">job 1</option>
         </optgroup>
         <optgroup label="loc 2">
-          <option>job 2</option>
+          <option value="2">job 2</option>
         </optgroup>
       </select>
-      <input type="file">
-      <input type="text">
+      </label>
+      <label>
+      <input type="file" name="aplication">
+      </label>
+      <label>
+      <input type="text" name="msg">
+      </label>
       <button type="submit">Send</button>
     </form>
   </main>
