@@ -2,7 +2,7 @@ from flask import flash, render_template, request, session, redirect, url_for, j
 from flask.ext.login import LoginManager, UserMixin, current_user, login_user, logout_user
 
 from abelson import app, bcrypt
-from . import db, email
+from . import db, email, defOfRandom
 
 login_manager = LoginManager()
 login_manager.init_app(app)
@@ -125,7 +125,7 @@ def careers():
 
 @app.route("/Q", methodes=['POST'])
 def Q():
-    if formCheck(request.form):
+    if defOfRandom.formCheck(request.form):
         email.sendQ(request.form)
         return jsonify(status="201", msg="Email sent."), 201
     else:
@@ -133,8 +133,8 @@ def Q():
 
 @app.route("/careers/send", methods=["POST"])
 def careers_send():
-    if formCheck(request.form):
-        file= fileEncode(request.file);
+    if defOfRandom.formCheck(request.form):
+        file= defOfRandom.frleEncode(request.file);
         email.sendAp(request.form, request.file)
         return jsonify(status="201", msg="Aplication submited."), 201
     else:
