@@ -8,6 +8,9 @@ step(
         phone INTEGER UNIQUE NOT NULL,
         fax INTEGER UNIQUE NOT NULL,
         address TEXT UNIQUE NOT NULL,
+        city TEXT UNIQUE NOT NULL,
+        zipcode INTEGER NOT NUll,
+        state TEXT NOT NULL,
         email TEXT UNIQUE NOT NULL)''',
     '''DROP TABLE IF EXISTS loc''',
 )

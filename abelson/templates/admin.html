@@ -10,7 +10,6 @@
   <main>
     <h1>Welcome, {{ current_user.name }}</h1>
     <h3>This is the admin page.</h3>
-    <form id="adminform" action="/admin" method="post">
       <label>
         <span>Select a location</span>
         <select name="loc_edit" id="loc_edit">
@@ -19,30 +18,32 @@
           <option>Evensville</option>
         <select>
       </label>
+      {% for loc in locs %}
+      <form id="adminform" action="/admin" method="POST">
       <div id="edit_div" class="hidden">
         <ul>
           <li>
             <label>
               <span>Address:</span>
-              <input type="text" name="edit_loc_address">
+              <input type="text" name="loc.address">
             </label>
           </li>
           <li>
             <label>
               <span>Fax:</span>
-              <input type="text" name="edit_loc_fax">
+              <input type="text" name="loc.fax">
             </label>
           </li>
           <li>
             <label>
               <span>Phone:</span>
-              <input type="text" name="edit_loc_phone">
+              <input type="text" name="loc.phone">
             </label>
           </li>
           <li>
             <label>
               <span>Email:</span>
-              <input type="text" name="edit_loc_email">
+              <input type="text" name="loc.email">
             </label>
           </li>
           <li>
@@ -51,5 +52,6 @@
         </ul>
       </div>
     </form>
+    {% endfor%}
   </main>
 {% endblock %}
