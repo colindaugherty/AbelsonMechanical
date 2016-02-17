@@ -79,7 +79,8 @@ def get_job_by_id(job_id):
 
 def update_loc(loc_data):
     db, c = connect()
-
+    c.execute('''UPDATE loc SET address = ?, city = ?, state = ?, zipcode = ?, fax = ?, phone = ?, email = ? WHERE id == ?''',
+              (loc_data["address"], loc_data["city"], loc_data["state"], loc_data["zipcode"], loc_data["fax"], loc_data["phone"], loc_data["email"], loc_data["id"]))
     db.commit()
     clean_up(db, c)
 

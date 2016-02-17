@@ -70,10 +70,10 @@ def admin():
 
 
 @app.route("/admin/loc", methods=["POST"])
-def admin_loc(loc):
-    db.update_loc()
-    return jsonify(status="201", msg="Updated Location's information"), 201
-
+def admin_loc():
+    db.update_loc(request.form)
+    flash("Updated Successfully")
+    return redirect(url_for('admin'))
 
 @app.route("/loc/get", methods=["GET"])
 def loc_get():

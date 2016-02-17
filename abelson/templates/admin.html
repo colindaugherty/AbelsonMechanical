@@ -4,71 +4,81 @@
 {% extends "base.html" %}
 {% block title %}- Admin{% endblock %}
 {% block head %}
-  {{ super() }}
+{{ super() }}
 {% endblock %}
 {% block content %}
-  <main>
-    <h1>Welcome, {{ current_user.name }}</h1>
-    <h3>This is the admin page.</h3>
-      <label>
-        <span>Select a location</span>
-        <select name="loc_edit" id="loc_edit" autocomplete="off">
-          <option value="#0">Louisville</option>
-          <option value="#1">Evansville</option>
-        <select>
+<main>
+  <h1>Welcome, {{ current_user.name }}</h1>
+  <h3>This is the admin page.</h3>
+  {% with messages = get_flashed_messages() %}
+  {% if messages %}
+  <ul class=flashes>
+    {% for message in messages %}
+    <li>{{ message  }}</li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+  {% endwith %}
+  <label>
+    <span>Select a location</span>
+    <select name="loc_edit" id="loc_edit" autocomplete="off">
+      <option value="#0">Louisville</option>
+      <option value="#1">Evansville</option>
+      <select>
       </label>
       {% for loc in locs %}
-      <form id="{{loc.id}}" {% if loc.id is equalto 1%} class="hidden" {% endif %} action="/admin" method="POST">
+      <form id="{{loc.id}}" {% if loc.id is equalto 1%} class="hidden" {% endif %} action="/admin/loc" method="POST">
         <div id="edit_div">
-        <ul>
-          <li>
-            <label>
-              <span>Address:</span>
-              <input type="text" name="address" value="{{loc.address}}">
-            </label>
-          </li>
-          <li>
-            <label>
-              <span>City</span>
-              <input type="text" name="city" value="{{loc.city}}">
-            </label>
-          </li>
-          <li>
-            <label>
-              <span>State</span>
-              <input type="text" name="state" value="{{loc.state}}">
-            </label>
-          </li>
-          <li>
-            <label>
-              <span>Zipcode</span>
-              <input type="text" name="zipcode" value="{{loc.zipcode}}">
-            <label>
-          </li>
-          <li>
-            <label>
-              <span>Fax:</span>
-              <input type="text" name="fax" value="{{loc.fax}}">
-            </label>
-          </li>
-          <li>
-            <label>
-              <span>Phone:</span>
-              <input type="text" name="phone" value="{{loc.phone}}">
-            </label>
-          </li>
-          <li>
-            <label>
-              <span>Email:</span>
-              <input type="text" name="email" value="{{loc.email}}">
-            </label>
-          </li>
-          <li>
-            <button type="submit">Update</button>
-          </li>
-        </ul>
-      </div>
-    </form>
-    {% endfor%}
-  </main>
-{% endblock %}
+          <ul>
+            <li>
+              <label>
+                <span>Address:</span>
+                <input type="text" name="address" value="{{loc.address}}">
+              </label>
+            </li>
+            <li>
+              <label>
+                <span>City</span>
+                <input type="text" name="city" value="{{loc.city}}">
+              </label>
+            </li>
+            <li>
+              <label>
+                <span>State</span>
+                <input type="text" name="state" value="{{loc.state}}">
+              </label>
+            </li>
+            <li>
+              <label>
+                <span>Zipcode</span>
+                <input type="text" name="zipcode" value="{{loc.zipcode}}">
+                <label>
+                </li>
+                <li>
+                  <label>
+                    <span>Fax:</span>
+                    <input type="text" name="fax" value="{{loc.fax}}">
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <span>Phone:</span>
+                    <input type="text" name="phone" value="{{loc.phone}}">
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <span>Email:</span>
+                    <input type="text" name="email" value="{{loc.email}}">
+                  </label>
+                </li>
+                <input type="hidden" name="id" value="{{loc.id}}">
+                <li>
+                  <button type="submit">Update</button>
+                </li>
+              </ul>
+            </div>
+          </form>
+          {% endfor%}
+        </main>
+        {% endblock %}
