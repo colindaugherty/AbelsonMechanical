@@ -3,7 +3,7 @@ import sqlite3
 db_file = 'abelson.sqlite'
 USER = ['username', 'password']
 JOBS = ['id', 'name', 'loc', 'description']
-LOC = ['id', 'name', 'map', 'phone', 'fax', 'address', 'email']
+LOC = ['id', 'name', 'phone', 'fax', 'address', 'city', 'state', 'zipcode', 'email', "map"]
 
 def make_dict(tup_list, fields):
     return [dict(zip(fields, d)) for d in tup_list]

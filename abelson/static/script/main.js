@@ -1,34 +1,37 @@
-function ready(fn) {
-  if (document.readyState != 'loading') {
-    fn();
-  } else {
-    document.addEventListener('DOMContentLoaded', fn);
-  }
+/* eslint-env es6 */
+
+{
+  'use strict';
+
+  const ABELSON = (function() {
+    let select, div;
+
+    const toggleClass = function toggleClass (classname, el) {
+      $(el).toggleClass(classname);
+    };
+
+    const animationController = function animationController (e) {
+      let t = e.target;
+
+      e.preventDefault();
+
+      if ($(t.options[t.selectedIndex].value).hasClass(e.data)) {
+        $("form").forEach((x) => {
+          toggleClass(e.data, x);
+        });
+      }
+    };
+
+    const init = function init () {
+      $("body").on("change", "#loc_edit", 'hidden', animationController);
+    };
+
+    return {
+      init: init
+    };
+
+  }());
+
+  $(document).on('ready', function () { ABELSON.init(); });
 }
 
-var ABELSONMECHANICAL = (function() {
-  var select, div;
-  //var AdminForm = document.getElementById('adminform'),
-  //careerNewForm = document.getElementById('careerNewForm');
-  //careerEditForm = document.getElementById('careerNewForm');
-
-  //  var Evt = new EventEmitter2();
-
-  function animationController() {
-    select = $('#loc_edit');
-
-    select.on("change", function(e) {
-      div = $('#edit_div');
-      div.addClass('fadein');
-    });
-  }
-
-
-  
-
-  return {
-    init: init
-  };
-})();
-
-$(document).on('ready', function () { ABELSONMECHANICAL.init(); });

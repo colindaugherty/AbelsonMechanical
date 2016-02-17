@@ -12,42 +12,59 @@
     <h3>This is the admin page.</h3>
       <label>
         <span>Select a location</span>
-        <select name="loc_edit" id="loc_edit">
-          <option disabled selected>Select a Location</option>
-          <option>Louisville</option>
-          <option>Evensville</option>
+        <select name="loc_edit" id="loc_edit" autocomplete="off">
+          <option value="#0">Louisville</option>
+          <option value="#1">Evansville</option>
         <select>
       </label>
       {% for loc in locs %}
-      <form id="adminform" action="/admin" method="POST">
-      <div id="edit_div" class="hidden">
+      <form id="{{loc.id}}" {% if loc.id is equalto 1%} class="hidden" {% endif %} action="/admin" method="POST">
+        <div id="edit_div">
         <ul>
           <li>
             <label>
               <span>Address:</span>
-              <input type="text" name="loc.address">
+              <input type="text" name="address" value="{{loc.address}}">
             </label>
           </li>
           <li>
             <label>
+              <span>City</span>
+              <input type="text" name="city" value="{{loc.city}}">
+            </label>
+          </li>
+          <li>
+            <label>
+              <span>State</span>
+              <input type="text" name="state" value="{{loc.state}}">
+            </label>
+          </li>
+          <li>
+            <label>
+              <span>Zipcode</span>
+              <input type="text" name="zipcode" value="{{loc.zipcode}}">
+            <label>
+          </li>
+          <li>
+            <label>
               <span>Fax:</span>
-              <input type="text" name="loc.fax">
+              <input type="text" name="fax" value="{{loc.fax}}">
             </label>
           </li>
           <li>
             <label>
               <span>Phone:</span>
-              <input type="text" name="loc.phone">
+              <input type="text" name="phone" value="{{loc.phone}}">
             </label>
           </li>
           <li>
             <label>
               <span>Email:</span>
-              <input type="text" name="loc.email">
+              <input type="text" name="email" value="{{loc.email}}">
             </label>
           </li>
           <li>
-            <button type="submit" name="button">Update</button>
+            <button type="submit">Update</button>
           </li>
         </ul>
       </div>
