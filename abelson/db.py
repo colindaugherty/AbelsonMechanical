@@ -59,6 +59,12 @@ def update_job(job_data, job_id):
 
     pass
 
+def delete_job(job_id):
+    db, c = connect()
+    c.execute('''''')
+    db.commit()
+    clean_up(db, c)
+
 def get_jobs():
     db, c = connect()
     c.execute('SELECT * FROM job')
