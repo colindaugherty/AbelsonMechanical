@@ -34,7 +34,7 @@
       {% for loc in locs %}
       <form id="{{loc.id}}" {% if loc.id is equalto 1%} class="hidden" {% endif %} action="/admin/loc" method="POST">
         <div id="edit_div">
-          <ul>
+          <ul id="locul">
             <li>
               <label>
                 <span>Address:</span>

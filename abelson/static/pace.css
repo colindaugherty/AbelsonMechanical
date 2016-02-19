@@ -134,7 +134,7 @@ ul{
 }
 
 #menu1div{
- text-align: center; 
+  text-align: center; 
 }
 
 #locSec{
@@ -144,4 +144,9 @@ ul{
 #hr{
   color:#CBDB58; 
   width: 20em;
+}
+
+#locul{
+  text-align: end;
+  margin-right: 2em;
 }
