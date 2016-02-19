@@ -22,12 +22,17 @@
       }
     };
 
-    
-      
+    const menuChanger1 = function menuChanger1 () {
+      toggleClass('hidden', '#menu1');
+      toggleClass('hidden', '#menu2');
+    }
+
     const init = function init () {
       $("body").on("change", "#loc_edit", 'hidden', animationController);
+      $("#lines").on("click", menuChanger1);
+      $("#menu2pic").on("click", menuChanger1);
     };
-      
+
     return {
       init: init
     };
