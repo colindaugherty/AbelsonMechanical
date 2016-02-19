@@ -123,8 +123,8 @@ def job_get():
 def careers():
     return render_template('careers.html', jobs=db.get_jobs() )
 
-@app.route("/Q", methods=['POST'])
-def Q():
+@app.route("/contact", methods=['POST'])
+def contact():
     if defOfRandom.formCheck(request.form):
        # email.sendQ(request.form)
         return jsonify(status="201", msg="Email sent."), 201
