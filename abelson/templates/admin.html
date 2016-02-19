@@ -6,6 +6,9 @@
 {% block head %}
 {{ super() }}
 {% endblock %}
+{% block menu1%}
+  <span>Contact Info</span>
+{% endblock %}
 {% block content %}
 <main id="adminmain">
   {% with messages = get_flashed_messages() %}
