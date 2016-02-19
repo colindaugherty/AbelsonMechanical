@@ -90,3 +90,20 @@
     opacity: 1;
   }
 }
+
+#menu1{
+  background-color: #fff;
+}
+
+#menu2{
+  background-color: #CBDB58;
+}
+ 
+#baseBody{
+  background-color: #E9E9E9;
+}
+
+#adminmain{
+  background-color: #fff;
+  box-shadow: 3px 3px #ccc;
+}
