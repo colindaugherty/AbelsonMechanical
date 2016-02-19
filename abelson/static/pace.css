@@ -99,7 +99,6 @@ html, body {
 #menu1{
   background-color: #fff;
   box-shadow: 3px 3px 3px 3px #ccc;
-  display: inline-flex;
 }
 
 #menu2{
@@ -117,15 +116,14 @@ html, body {
 }
 
 #menu2link{
-  display: flex;
-  justify-content: center;
+  text-align: center;
 }
 #lines{
-  display: inline;
 }
 
 #menu1text{
-  display: flex;
-  justify-content: center;
-  margin-left: 40em;
+}
+
+#menu1div{
+ text-align: center; 
 }
