@@ -22,10 +22,12 @@
       }
     };
 
+    
+      
     const init = function init () {
       $("body").on("change", "#loc_edit", 'hidden', animationController);
     };
-
+      
     return {
       init: init
     };
