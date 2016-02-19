@@ -93,10 +93,12 @@
 
 #menu1{
   background-color: #fff;
+  box-shadow: 3px 3px 3px 3px #ccc;
 }
 
 #menu2{
   background-color: #CBDB58;
+  box-shadow: 3px 3px 3px 3px #ccc;
 }
  
 #baseBody{
@@ -105,5 +107,5 @@
 
 #adminmain{
   background-color: #fff;
-  box-shadow: 3px 3px #ccc;
+  box-shadow: 3px 3px 3px 3px #ccc;
 }
