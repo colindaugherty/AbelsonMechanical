@@ -22,13 +22,15 @@
   </ul>
   {% endif %}
   {% endwith %}
+  <section id="locSec">
   <label>
-    <span>Select a location</span>
+    <span>Select location:</span>
     <select name="loc_edit" id="loc_edit" autocomplete="off">
       <option value="#0">Louisville</option>
       <option value="#1">Evansville</option>
-      <select>
-      </label>
+    <select>
+  </label>
+  <hr id="hr"></hr>
       {% for loc in locs %}
       <form id="{{loc.id}}" {% if loc.id is equalto 1%} class="hidden" {% endif %} action="/admin/loc" method="POST">
         <div id="edit_div">
@@ -83,5 +85,6 @@
             </div>
           </form>
           {% endfor%}
+         </section>
         </main>
         {% endblock %}
