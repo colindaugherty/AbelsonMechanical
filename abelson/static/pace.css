@@ -115,6 +115,11 @@ html, body {
   box-shadow: 3px 3px 3px 3px #ccc;
 }
 
+#careerstable{
+    margin-left: auto;
+    margin-right: auto;
+}
+
 #menu2link{
   text-align: center;
 }
@@ -126,4 +131,9 @@ html, body {
 
 #menu1div{
  text-align: center; 
+}
+
+#careerstable{
+    margin-left: auto;
+    margin-right: auto;
 }
