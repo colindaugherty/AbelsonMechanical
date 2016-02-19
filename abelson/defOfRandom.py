@@ -8,9 +8,9 @@ def formCheck(a):
         else: 
             b.append('1')
     if "0" in b:
-        return false
+        return False 
     else:
-        return true
+        return True
 
 def fileEncode(a):
     with open(a, "rb") as a2:
