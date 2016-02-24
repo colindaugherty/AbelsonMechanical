@@ -1,32 +1,33 @@
 {% set menu = 'main' %}
 {% extends "base.html" %}
 {% block head %}
-  {{ super() }}
+{{ super() }}
 {% endblock %}
 {% block title %}- Careers{% endblock %}
 {% block content %}
-  <main>
-   {% for job in jobs %}
-    <section class="jobdescription">
-            <span>{{job.name}}</span>
-            <span>{{job.loc}}</span>
-            <p>{{job.description}}</p>
-    </section>
-    {% endfor %}
-    <form action="/careers/send" method="POST">
-      <label>
-         <input type="text" name="firstname">
-      </label>
-      <label>
+<main>
+  {% for job in jobs %}
+  <section>
+    <span>{{job.name}}</span>
+    <span>{{job.loc}}</span>
+    <p>{{job.description}}</p>
+  </section>
+  {% endfor %}
+  <form action="/careers/send" method="POST" enctype="multipart/form-data">
+    <label>
+      <span>First Name:</span>
+      <input type="text" name="firstname">
+    </label>
+    <label>
       <input type="text" name="lastname">
-      </label>
-      <label>
+    </label>
+    <label>
       <input type="text" name="email">
-      </label>
-      <label>
+    </label>
+    <label>
       <input type="text" name="phone">
-      </label>
-      <label>
+    </label>
+    <label>
       <select name="position">
         <optgroup label="Louisville">
 	  {% for job in jobs %}
@@ -43,17 +44,17 @@
 	  {% endfor %}
         </optgroup>
       </select>
-      </label>
-      <label>
-      <input type="file" name="aplication">
-      </label>
-      <label>
+    </label>
+    <label>
+      <input type="file" name="application" accepts="application/pdf">
+    </label>
+    <label>
       <input type="text" name="msg">
-      </label>
-      <button type="submit">Send</button>
-    </form>
-  </main>
+    </label>
+    <button type="submit">Send</button>
+  </form>
+</main>
 {% endblock %}
 {% block footer %}
-  {{ super() }}
+{{ super() }}
 {% endblock %}
