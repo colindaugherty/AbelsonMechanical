@@ -7,13 +7,13 @@
 {% block content %}
   <main>
    {% for job in jobs %}
-    <section>
+    <section class="jobdescription">
             <span>{{job.name}}</span>
             <span>{{job.loc}}</span>
             <p>{{job.description}}</p>
     </section>
     {% endfor %}
-    <form action"/careers/send" method="POST">
+    <form action="/careers/send" method="POST">
       <label>
          <input type="text" name="firstname">
       </label>
@@ -28,11 +28,19 @@
       </label>
       <label>
       <select name="position">
-        <optgroup label="loc 1">
-          <option value="1">job 1</option>
+        <optgroup label="Louisville">
+	  {% for job in jobs %}
+	  {% if job.loc == 1 %}
+          <option value="1">{{job.name}}</option>
+	  {% endif %}
+	  {% endfor %}
         </optgroup>
-        <optgroup label="loc 2">
-          <option value="2">job 2</option>
+        <optgroup label="Evansville">
+	  {% for job in jobs %}
+	  {% if job.loc == 2 %}
+          <option value="2">{{job.name}}</option>
+	  {% endif %}
+	  {% endfor %}
         </optgroup>
       </select>
       </label>
