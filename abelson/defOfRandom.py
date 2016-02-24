@@ -13,5 +13,4 @@ def formCheck(a):
         return True
 
 def fileEncode(a):
-    with open(a, "rb") as a2:
-         return base64.b64encode(a2.read())
+    return base64.b64encode(a.read())

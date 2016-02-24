@@ -3,6 +3,7 @@ from flask.ext.login import LoginManager, UserMixin, current_user, login_user, l
 
 from email.mime.text import MIMEText
 from email.mime.application import MIMEApplication
+from email.mime.multipart import MIMEMultipart
 
 from abelson import app, bcrypt
 from . import db, defOfRandom, AbelsonEmail
@@ -98,32 +99,23 @@ def admin_careers_new():
 @app.route("/admin/careers/<id>", methods=["GET", "POST"])
 def admin_careers_update(id):
     if (request.method == "GET"):
-        job = db.get_job_by_id(id) 
-        return render_template("admin_careers_update.html", job = job[0])   
+        job = db.get_job_by_id(id)
+        return render_template("admin_careers_update.html", job = job[0])
     if (request.method == "POST"):
         if request.form['name'] != "" and request.form['description'] != "":
             db.update_job(request.form, id)
-            # return jsonify(status="201", msg="Career Updated"), 201
-            return redirect(url_for('admin_careers'))
+            return jsonify(status="201", msg="Career Updated"), 201
         else:
-            # return jsonify(status="400", msg="Please fill in all fields."), 400
-            return render_template('admin_careers_update.html', error="Please fill in all fields")
+            return jsonify(status="400", msg="Please fill in all fields."), 400
 
-@app.route("/admin/careers/delete/<id>")
-def admin_careers_delete(id):
-    db.delete_job(id)
-    return redirect(url_for('admin_careers'))
-        
 @app.route("/admin/careers/add", methods=["POST"])
 def admin_careers_add():
     if request.form['name']!= "" and request.form['description'] != "":
         db.new_job(request.form)
         #print(request.form)
-        # return jsonify(status="201", msg="Job added successfully."), 201
-        return redirect(url_for('admin_careers'))
+        return jsonify(status="201", msg="Job added successfully."), 201
     else:
-        # return jsonify(status="400", msg="Please fill in all fields."), 400
-        return render_template('admin_careers_new.html', error="Please fill in all fields")
+        return jsonify(status="400", msg="Please fill in all fields."), 400
 
 @app.route("/job/get", methods=["GET"])
 def job_get():
@@ -139,7 +131,7 @@ def careers():
 def contact():
     if defOfRandom.formCheck(request.form):
         MSG = MIMEText("Hi,\nMy name is " + request.form['firstname'] + " " + request.form['lastname'] +
-                       "\n" + "My email and phone are " + request.form['email'] + " " + request.form['phone'] + 
+                       "\n" + "My email and phone are " + request.form['email'] + " " + request.form['phone'] +
                        "\n" + "My company and industry are " + request.form['company'] + " " + request.form['industry'] +
                        "\n" + request.form['msg'])
         MSG['subject'] = "Contact Question"
@@ -155,8 +147,23 @@ def contact():
 @app.route("/careers/send", methods=["POST"])
 def careers_send():
     if defOfRandom.formCheck(request.form):
-        file= defOfRandom.frleEncode(request.file);
-       # email.sendAp(request.form, request.file)
+        MSG = MIMEMultipart()
+        txt_attach = MIMEText(
+            "Hi,\nMy name is " + request.form['firstname'] + " " + request.form['lastname'] +
+            "\n" + "My email and phone are " + request.form['email'] + " " + request.form['phone'] +
+            "\n I am aplying for " + request.form["position"] + 
+            "\n" + request.form["msg"] )
+        MSG['Subject'] = "Contact Question"
+        MSG['From'] = 'Bob <abelsonmec@gmail.com>'
+        MSG['To'] = 'abelsonmec@gmail.com'
+        pdf = request.files['application'].read()
+        attachment = MIMEApplication(pdf, "pdf")
+        attachment.add_header('content-disposition', 'attachment', filename='file.pdf')
+        MSG.attach(txt_attach)
+        MSG.attach(attachment)
+
+        AbelsonEmail.smtp_sendEmail(AbelsonEmail.EMAIL_CONFIG, MSG)
+
         return jsonify(status="201", msg="Aplication submited."), 201
     else:
         return jsonify(status="400", msg="Please fill in all fields."), 400
