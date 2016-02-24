@@ -1,8 +1,11 @@
 from flask import flash, render_template, request, session, redirect, url_for, jsonify
 from flask.ext.login import LoginManager, UserMixin, current_user, login_user, logout_user
 
+from email.mime.text import MIMEText
+from email.mime.application import MIMEApplication
+
 from abelson import app, bcrypt
-from . import db, defOfRandom
+from . import db, defOfRandom, AbelsonEmail
 
 login_manager = LoginManager()
 login_manager.init_app(app)
@@ -126,7 +129,16 @@ def careers():
 @app.route("/contact", methods=['POST'])
 def contact():
     if defOfRandom.formCheck(request.form):
-       # email.sendQ(request.form)
+        MSG = MIMEText("Hi,\nMy name is " + request.form['firstname'] + " " + request.form['lastname'] +
+                       "\n" + "My email and phone are " + request.form['email'] + " " + request.form['phone'] + 
+                       "\n" + "My company and industry are " + request.form['company'] + " " + request.form['industry'] +
+                       "\n" + request.form['msg'])
+        MSG['subject'] = "Contact Question"
+        MSG['From'] = 'Bob <abelsonmec@gmail.com>'
+        MSG['To'] = 'abelsonmec@gmail.com'
+
+        AbelsonEmail.smtp_sendEmail(AbelsonEmail.EMAIL_CONFIG, MSG)
+
         return jsonify(status="201", msg="Email sent."), 201
     else:
         return jsonify(status="400", msg="Please fill in all fields."), 400
