@@ -11,12 +11,13 @@
 {% endblock %}
 {% block content %}
 <main>
+  <br>
   <table id="careerstable">
-    <tr>
+    <tr id="careershead">
       <td><p>Job Name</p></td>
       <td><p>Location</p></td>
-      <td><a href="{{url_for('admin_careers_new')}}"><img src="/static/images/addbutton.png"></a>
-      </tr>
+      <td><a href="{{url_for('admin_careers_new')}}"><img src="/static/images/addbutton.png"></a></td>
+    </tr>
       {% for job in jobs%}
       <tr>
 	<td><a href="/admin/careers/{{job.id}}">{{job.name}}</a></td>

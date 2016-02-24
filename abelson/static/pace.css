@@ -118,8 +118,8 @@ ul{
 #adminmain{
   background-color: #fff;
   box-shadow: 3px 3px 3px 3px #ccc;
-  width: 20em;
-  height: 15em;
+  width: 22em;
+  height: 28em;
   margin: auto;
   margin-top: 2em;
   padding: 1em;
@@ -143,7 +143,7 @@ ul{
 
 #hr{
   color:#CBDB58; 
-  width: 20em;
+  width: 22em;
 }
 
 #locul{
@@ -154,4 +154,16 @@ ul{
 #careerstable{
     margin-right: auto;
     margin-left: auto;
+<<<<<<< HEAD
 }
+=======
+    background-color: #fff;
+    box-shadow: 3px 3px 3px 3px #ccc;
+    box-sizing: border-box;
+    border: 8px solid white;
+}
+
+.jobdescription{
+    
+}
+>>>>>>> 17007601a31a652c03f3b9b52c3d211f71a09195
