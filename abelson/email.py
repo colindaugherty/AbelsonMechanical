@@ -20,7 +20,7 @@ def sendAp(ap, r):
     data={
         "FromEmail": ap["email"],
         "FromeName": "{0} {1}".format(ap["firstname"], ap["lastname"]),
-        "Subject": 'Apliction for {0} {1}'.format(ap["firstname"], ap["lastname"]),
+        "Subject": 'Aplication for {0} {1}'.format(ap["firstname"], ap["lastname"]),
         "Text-part": ap["msg"],
         "Recipients":[{"Email": "abelsonmec@gmail.com"}],
         "Attchments":[{
