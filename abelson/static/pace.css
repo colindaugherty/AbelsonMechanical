@@ -118,11 +118,10 @@ ul{
 #adminmain{
   background-color: #fff;
   box-shadow: 3px 3px 3px 3px #ccc;
-  width: 22em;
-  height: 28em;
+  width: 600px;
+  height: 500px;
   margin: auto;
   margin-top: 2em;
-  padding: 1em;
 }
 #menu2link{
   text-align: center;
@@ -143,27 +142,38 @@ ul{
 
 #hr{
   color:#CBDB58; 
-  width: 22em;
+  width: 20em;
 }
 
 #locul{
   text-align: end;
-  margin-right: 2em;
+  margin-right: 150px;
+}
+
+#locul input{
+  width: 220px;
+  height: 30px;
+}
+
+#locul li{
+  margin: 15px;
 }
 
 #careerstable{
     margin-right: auto;
     margin-left: auto;
-<<<<<<< HEAD
-}
-=======
-    background-color: #fff;
-    box-shadow: 3px 3px 3px 3px #ccc;
-    box-sizing: border-box;
-    border: 8px solid white;
 }
 
-.jobdescription{
-    
+#loc_lab{
+  width: 100%;
+  display: inline-block;
+  text-align: center;
+  border-bottom: 2px solid #CBDB58;
+  padding-top: 20px;
+  padding-bottom: 10px;
 }
->>>>>>> 17007601a31a652c03f3b9b52c3d211f71a09195
+
+#loc_edit{
+  background: transparent;
+  width: 135px;
+}
