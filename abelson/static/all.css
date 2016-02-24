@@ -1,0 +1,45 @@
+.hidden {
+  display: none;
+}
+
+.fadein {
+  opacity: 1;
+  animation-name: fadein;
+  animation-duration: 700ms;
+}
+
+@keyframes fadein{
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+
+}
+
+ul{
+  list-style: none;
+}
+
+#menu1{
+  background-color: #fff;
+  box-shadow: 3px 3px 3px 3px #ccc;
+}
+
+#menu2{
+  background-color: #CBDB58;
+  box-shadow: 3px 3px 3px 3px #ccc;
+}
+
+#baseBody{
+  background-color: #E9E9E9;
+}
+
+
