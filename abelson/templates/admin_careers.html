@@ -1,9 +1,14 @@
 {% set menu = 'main' %}
 {% extends "base.html" %}
 {% block head %}
-  {{ super() }}
+{{ super() }}
 {% endblock %}
 {% block title %}- Admin Careers{% endblock %}
+{% block menu1%}
+<div id="menu1div">
+  <span id="menu1text">Careers</span>
+</div>
+{% endblock %}
 {% block content %}
 <main>
   <table id="careerstable">
@@ -11,17 +16,23 @@
       <td><p>Job Name</p></td>
       <td><p>Location</p></td>
       <td><a href="{{url_for('admin_careers_new')}}"><img src="/static/images/addbutton.png"></a>
-    </tr>
+      </tr>
       {% for job in jobs%}
       <tr>
+<<<<<<< HEAD
 	<td><a href="/admin/careers/{{job.id}}">{{job.name}}</a></td>
 	<td><span>{{job.loc}}</span></td>
 	<td><a href="/admin/careers/delete/{{job.id}}"><img src="/static/images/delete.png" height="20" width="20"></a></td>
+=======
+        <td><a href="/admin/careers/{{job.id}}">{{job.name}}</a></td>
+        <td><span>{{job.loc}}</span></td>
+        <td><img src="/static/images/delete.png" height="20" width="20"></td>
+>>>>>>> 9a3a846961944359d5c60d682f4a45f9701495a6
       </tr>
       {% endfor %}
-  </table>
-</main>
-{% endblock %}
-{% block footer %}
+    </table>
+  </main>
+  {% endblock %}
+  {% block footer %}
   {{ super() }}
-{% endblock %}
+  {% endblock %}
