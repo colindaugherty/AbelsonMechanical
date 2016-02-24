@@ -103,18 +103,27 @@ def admin_careers_update(id):
     if (request.method == "POST"):
         if request.form['name'] != "" and request.form['description'] != "":
             db.update_job(request.form, id)
-            return jsonify(status="201", msg="Career Updated"), 201
+            # return jsonify(status="201", msg="Career Updated"), 201
+            return redirect(url_for('admin_careers'))
         else:
-            return jsonify(status="400", msg="Please fill in all fields."), 400
+            # return jsonify(status="400", msg="Please fill in all fields."), 400
+            return render_template('admin_careers_update.html', error="Please fill in all fields")
 
+@app.route("/admin/careers/delete/<id>")
+def admin_careers_delete(id):
+    db.delete_job(id)
+    return redirect(url_for('admin_careers'))
+        
 @app.route("/admin/careers/add", methods=["POST"])
 def admin_careers_add():
     if request.form['name']!= "" and request.form['description'] != "":
         db.new_job(request.form)
         #print(request.form)
-        return jsonify(status="201", msg="Job added successfully."), 201
+        # return jsonify(status="201", msg="Job added successfully."), 201
+        return redirect(url_for('admin_careers'))
     else:
-        return jsonify(status="400", msg="Please fill in all fields."), 400
+        # return jsonify(status="400", msg="Please fill in all fields."), 400
+        return render_template('admin_careers_new.html', error="Please fill in all fields")
 
 @app.route("/job/get", methods=["GET"])
 def job_get():

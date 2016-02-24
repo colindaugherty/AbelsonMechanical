@@ -150,3 +150,8 @@ ul{
   text-align: end;
   margin-right: 2em;
 }
+
+#careerstable{
+    margin-right: auto;
+    margin-left: auto;
+}
