@@ -16,7 +16,7 @@
       <tr>
 	<td><a href="/admin/careers/{{job.id}}">{{job.name}}</a></td>
 	<td><span>{{job.loc}}</span></td>
-	<td><img src="/static/images/delete.png" height="20" width="20"></td>
+	<td><a href="/admin/careers/delete/{{job.id}}"><img src="/static/images/delete.png" height="20" width="20"></a></td>
       </tr>
       {% endfor %}
   </table>

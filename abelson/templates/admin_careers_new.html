@@ -5,7 +5,10 @@
 {% endblock %}
 {% block title %}- Admin Careers New{% endblock %}
 {% block content %}
-  <main>
+<main>
+  {% if error %}
+  <span class="notification error">{{ error  }}</span>
+  {% endif %}
     <h1>Job Postings</h1>
     <form id="careerNewForm" action="/admin/careers/add" method="post">
       <ul>

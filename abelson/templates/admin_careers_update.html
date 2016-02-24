@@ -15,8 +15,8 @@
     <label>
       <span>Location:</span>
       <select name="location">
-	<option value="1">Louisville, KY</option>
-	<option value="2">Evansville, IN</option>
+	<option value="1" {% if job.loc == 1 %}selected{% endif %}>Louisville, KY</option>
+	<option value="2" {% if job.loc == 2 %}selected{% endif %}>Evansville, IN</option>
       </select>
       <label>
 	<span>placeholder</span>
