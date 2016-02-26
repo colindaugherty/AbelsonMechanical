@@ -1,0 +1,31 @@
+main{
+ background-color: #fff;
+ box-shadow: 3px 3px 3px 3px #ccc;
+ width: 600px;
+ height: 400px;
+ margin: auto;
+ margin-top: 2em;
+}
+
+#HEADER{
+ width: 100%;
+ display: inline-block;
+ text-align: center;
+ border-bottom: 2px solid #CBDB58;
+ padding-top: 20px;
+ padding-bottom: 10px;
+}
+
+#TextAreaLabel{
+  display: flex;
+  flex-direction: column;
+}
+
+#ULUL{
+  text-align: center;
+}
+
+#TextArea{
+  width: 300px; 
+  margin-left: 120px;
+}

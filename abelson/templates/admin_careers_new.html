@@ -1,50 +1,53 @@
 {% set menu = 'main' %}
 {% extends "base.html" %}
 {% block head %}
-  {{ super() }}
+{{ super() }}
+<link rel="stylesheet" href="/static/admin_new.css">
 {% endblock %}
 {% block title %}- Admin Careers New{% endblock %}
- {% block menu1%}
-   <div id="menu1div">
-         <span id="menu1text">New Job</span>
-           </div>
-             {% endblock %}
+{% block menu1%}
+<div id="menu1div">
+  <span id="menu1text">New Job</span>
+</div>
+{% endblock %}
 {% block content %}
 <main>
   {% if error %}
   <span class="notification error">{{ error  }}</span>
   {% endif %}
-    <h1>Job Postings</h1>
-    <form id="careerNewForm" action="/admin/careers/add" method="post">
-      <ul>
-        <li>
-          <label>
-            <span>Job Name:</span>
-            <input type="text" placeholder="Job Name" name="name">
-          </label>
-        </li>
-        <li>
-          <label>
-            <span>Location:</span>
-            <select name="location">
-              <option value="1">Louisville, KY</option>
-              <option value="2">Evansville, IN</option>
-            </select>
-          </label>
-        </li>
-        <li>
-          <label>
-            <span>Description:</span>
-            <textarea name="description" rows="8" cols="40" placeholder="Description"></textarea>
-          </label>
-        </li>
-        <li>
-          <button type="submit">Add</button>
-        </li>
-      </ul>
-    </form>
-  </main>
+  <h1 id="HEADER">Job Postings</h1>
+  <form id="careerNewForm" action="/admin/careers/add" method="post">
+    <ul id="ULUL">
+      <section id="ulSec">
+      <li>
+        <label>
+          <span>Job Name:</span>
+          <input type="text" placeholder="Job Name" name="name">
+        </label>
+      </li>
+      <li>
+        <label>
+          <span>Location:</span>
+          <select name="location">
+            <option value="1">Louisville, KY</option>
+            <option value="2">Evansville, IN</option>
+          </select>
+        </label>
+      </li>
+    </section>
+      <li>
+        <label id="TextAreaLabel">
+          <span>Description:</span>
+          <textarea id="TextArea" name="description" rows="8" cols="2" placeholder="Description"></textarea>
+        </label>
+      </li>
+      <li>
+        <button type="submit">Add</button>
+      </li>
+    </ul>
+  </form>
+</main>
 {% endblock %}
 {% block footer %}
-  {{ super() }}
+{{ super() }}
 {% endblock %}
