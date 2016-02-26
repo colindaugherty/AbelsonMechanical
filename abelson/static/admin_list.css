@@ -18,3 +18,8 @@ main{
 .border{
   border-bottom: 1px solid black;
 }
+
+.jobLink{
+  color: gray;
+  text-decoration: none;
+}

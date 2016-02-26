@@ -28,12 +28,10 @@
     }
 
     const deleat1 = function deleat1 (e) {
-      console.log("hi");
       e.target.src="/static/images/deletehighlighted.png";
     }
 
     const deleat2 = function deleat2 (e) {
-      console.log(e.target);
       e.target.src="/static/images/delete.png";
     }
 
