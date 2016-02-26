@@ -1,6 +1,4 @@
-.hidden {
-  display: none;
-}
+
 
 .fadein {
   opacity: 1;
@@ -31,11 +29,13 @@ ul{
 #menu1{
   background-color: #fff;
   box-shadow: 3px 3px 3px 3px #ccc;
+  padding: 30px;
 }
 
 #menu2{
   background-color: #CBDB58;
   box-shadow: 3px 3px 3px 3px #ccc;
+  padding: 30px;
 }
 
 #baseBody{
@@ -43,7 +43,6 @@ ul{
 }
 
 #menu2link{
-  text-align: center;
 }
 #lines{
 }
@@ -52,5 +51,17 @@ ul{
 }
 
 #menu1div{
-  text-align: center; 
+}
+
+.hidden {
+  display: none;
+}
+
+#Menu2Sec{
+  display: flex;
+}
+
+#Menu1Sec{
+  display: flex;
+  margin: auto;
 }
