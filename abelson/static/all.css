@@ -45,6 +45,7 @@ ul{
 #menu2link a{
   color: white;
   text-decoration: none;
+  text-transform: uppercase;
 }
 #lines{
 }
