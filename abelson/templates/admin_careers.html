@@ -12,23 +12,22 @@
 {% endblock %}
 {% block content %}
 <main>
-  <br>
   <table id="careerstable">
     <tr id="careershead">
       <td><p>Job Name</p></td>
       <td><p>Location</p></td>
       <td><a href="{{url_for('admin_careers_new')}}"><img src="/static/images/addbutton.png"></a></td>
     </tr>
-      {% for job in jobs%}
-      <tr>
-	<td><a href="/admin/careers/{{job.id}}">{{job.name}}</a></td>
-	<td><span>{{job.loc}}</span></td>
-	<td><a href="/admin/careers/delete/{{job.id}}"><img src="/static/images/delete.png" height="20" width="20"></a></td>
-      </tr>
-      {% endfor %}
-    </table>
-  </main>
-  {% endblock %}
-  {% block footer %}
-  {{ super() }}
-  {% endblock %}
+    {% for job in jobs%}
+    <tr>
+      <td class="border"><a href="/admin/careers/{{job.id}}">{{job.name}}</a></td>
+      <td class="border"><span>{{job.loc}}</span></td>
+      <td class="border"><a href="/admin/careers/delete/{{job.id}}"><img src="/static/images/delete.png" height="20" width="20"></a></td>
+    </tr>
+    {% endfor %}
+  </table>
+</main>
+{% endblock %}
+{% block footer %}
+{{ super() }}
+{% endblock %}
