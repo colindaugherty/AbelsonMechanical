@@ -23,3 +23,12 @@ main{
   color: gray;
   text-decoration: none;
 }
+
+.jobloc{
+  color: gray;
+}
+
+.right{
+  text-align: right;
+  padding-right: 15px;
+}
