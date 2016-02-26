@@ -2,6 +2,7 @@
 {% extends "base.html" %}
 {% block head %}
 {{ super() }}
+<link rel="stylesheet" href="/static/admin_update.css">
 {% endblock %}
 {% block title %}- Admin Careers New{% endblock %}
 {% block menu1%}
@@ -11,27 +12,32 @@
 {% endblock %}
 {% block content %}
 <main>
-  <h1>Job Postings</h1>
+  <h1 id="HEADER">Job Postings</h1>
   <form  method="post" >
-    <label>
-      <span>Job Name:</span>
-      <input type="text" value="{{job.name}}" name="name">
-    </label>
-    <label>
-      <span>Location:</span>
-      <select name="location">
-<<<<<<< HEAD
-	<option value="1" {% if job.loc == 1 %}selected{% endif %}>Louisville, KY</option>
-	<option value="2" {% if job.loc == 2 %}selected{% endif %}>Evansville, IN</option>
-=======
-        <option value="1">Louisville, KY</option>
-        <option value="2">Evansville, IN</option>
->>>>>>> 9a3a846961944359d5c60d682f4a45f9701495a6
-      </select>
-      <label>
-        <span>placeholder</span>
-        <textarea name="description" rows="8" cols="40">{{job.description}}</textarea>
-      </label>
+    <ul id="UL2">
+      <li>
+        <label>
+          <span>Job Name:</span>
+          <input type="text" value="{{job.name}}" name="name">
+        </label>
+      </li>
+      <li>
+        <label>
+          <span>Location:</span>
+          <select name="location">
+            <option value="1" {% if job.loc == 1 %}selected{% endif %}>Louisville, KY</option>
+            <option value="2" {% if job.loc == 2 %}selected{% endif %}>Evansville, IN</option>
+            <option value="1">Louisville, KY</option>
+            <option value="2">Evansville, IN</option>
+          </select>
+        </label>
+      </li>
+      <li>
+        <label id="TextAreaL">
+          <span>Description:</span>
+          <textarea id="Area" name="description" rows="8" cols="40">{{job.description}}</textarea>
+        </label>
+      </li>
       <button type="submit">Update</button>
     </form>
   </main>
