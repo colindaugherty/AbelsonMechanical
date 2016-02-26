@@ -42,7 +42,9 @@ ul{
   background-color: #E9E9E9;
 }
 
-#menu2link{
+#menu2link a{
+  color: white;
+  text-decoration: none;
 }
 #lines{
 }
