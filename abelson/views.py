@@ -52,14 +52,7 @@ def login():
 @app.route('/login/check', methods=['POST'])
 def login_check():
     # validate username and password
-    print(request.headers)
-    auth = request.headers['Authorization']
-    user = defOfRandom.getUser(auth)
-    tureUser = db.get_user()
-
-    print(tureUser)
-
-    if (defOfRandom.check(user, tureUser)):
+    if(defOfRandom.LoginCheck(request)): 
         return redirect(url_for('admin'))
     else:
         flash('Username or password incorrect')

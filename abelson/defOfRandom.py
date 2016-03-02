@@ -1,4 +1,5 @@
 import base64
+from abelson import db
 
 def formCheck(a):
     b = []
@@ -19,7 +20,6 @@ def getUser (a):
     b = a.split(" ")
     c = base64.b64decode(b[1]).decode('utf-8')
     d = c.split(':')
-    print(d)
     return d
 
 def check(u, t):
@@ -27,3 +27,14 @@ def check(u, t):
         if u[0] == a["username"] and u[1] == a["password"]:
             return True 
     return False
+
+def LoginCheck(a):
+    auth = a.headers['Authorization']
+    user = getUser(auth)
+    tureUser = db.get_user()
+
+    if (check(user, tureUser)):
+        return True
+    else:
+        return False
+        
