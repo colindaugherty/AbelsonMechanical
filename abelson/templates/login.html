@@ -2,16 +2,25 @@
 {% extends "base.html" %}
 {% block title %}- Login{% endblock %}
 {% block head %}
-  {{ super() }}
+{{ super() }}
 {% endblock %}
 {% block content %}
-  <main>
-    <form action="/login/check" method="post">
-              <p>Username: <input name="username" type="text" autofocus="true"></p>
-              <p>Password: <input name="password" type="password"></p>
-              <input type="submit" value="Login">
-          </form>
-  </main>
+<main>
+  <form id="loginForm" action="/login/check" method="post">
+    <label>
+      <span>Username:</span>
+      <input id="InUser" type="text" name="username" required>
+    </label>
+    <label>
+      <span>Password:</span>
+      <input id="InPass" type="password" name="password" required>
+    </label>
+    <input type="submit" value="Login">
+  </form>
+</main>
 {% endblock %}
 {% block footer %}
+{{super()}}
+<script src="{{url_for('static', filename='script/login.js')}}"></script>
+
 {% endblock %}

@@ -1,7 +1,7 @@
 import sqlite3
 
 db_file = 'abelson.sqlite'
-USER = ['username', 'password']
+USER = ['id', 'username', 'password']
 JOBS = ['id', 'name', 'loc', 'description']
 LOC = ['id', 'name', 'phone', 'fax', 'address', 'city', 'state', 'zipcode', 'email', "map"]
 
@@ -29,12 +29,12 @@ def clean_up(db, c):
     c.close()
     db.close()
 
-def get_user(username):
+def get_user():
     db, c = connect()
 
-    c.execute("SELECT * FROM user WHERE username=?", (username,))
-    result = c.fetchone()
-    result = make_dict(result, USER)
+    c.execute("SELECT * FROM users")
+    result = c.fetchall()
+    result = mapify_query_results(USER, result)
     clean_up(db, c)
 
     return result

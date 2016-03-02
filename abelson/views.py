@@ -8,6 +8,8 @@ from email.mime.multipart import MIMEMultipart
 from abelson import app, bcrypt
 from . import db, defOfRandom, AbelsonEmail
 
+import base64
+
 login_manager = LoginManager()
 login_manager.init_app(app)
 
@@ -50,9 +52,14 @@ def login():
 @app.route('/login/check', methods=['POST'])
 def login_check():
     # validate username and password
-    user = User.get(request.form['username'])
-    if (user and user.password == request.form['password']):
-        login_user(user)
+    print(request.headers)
+    auth = request.headers['Authorization']
+    user = defOfRandom.getUser(auth)
+    tureUser = db.get_user()
+
+    print(tureUser)
+
+    if (defOfRandom.check(user, tureUser)):
         return redirect(url_for('admin'))
     else:
         flash('Username or password incorrect')
