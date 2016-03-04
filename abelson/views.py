@@ -72,6 +72,7 @@ def index():
 def admin():
     return render_template('admin.html', locs=db.get_loc())
 
+
 @app.route("/admin/loc", methods=["POST"])
 def admin_loc():
     db.update_loc(request.form)
