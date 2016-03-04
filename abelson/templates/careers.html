@@ -3,6 +3,11 @@
 
 {% extends "base.html" %}
 
+{% block head %}
+{{ super() }}
+<link href={{url_for("static", filename="stylesheets/careers.css")}} rel="stylesheet">
+{% endblock %}
+
 {% block title %}Home{% endblock %}
 
 {% block header %}
@@ -14,11 +19,11 @@
 <a href="home.html" title="Homepage" id="logo"><img src="images/abelson_logo.png"></a>
 <nav>
   <ul id="nav">
-    <li><a href="home.html#about" title="About"></a>About</li>
-    <li><a href="home.html#services" title="Services">Services</a></li>
-    <li><a href="home.html#clients" title="Clients">Clients</a></li>
-    <li><a href="home.html#locats" title="Locations">Locations</a></li>
-    <li><a href="home.html#contact" title="Contact">Contact</a></li>
+    <li><a href="index.html#about" title="About"></a>About</li>
+    <li><a href="index.html#services" title="Services">Services</a></li>
+    <li><a href="index.html#clients" title="Clients">Clients</a></li>
+    <li><a href="index.html#locats" title="Locations">Locations</a></li>
+    <li><a href="index.html#contact" title="Contact">Contact</a></li>
     <li><a href="#" title="Careers">Careers</a></li>
   </ul>
 </nav>

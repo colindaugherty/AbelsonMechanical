@@ -3,6 +3,11 @@
 
 {% extends "base.html" %}
 
+{% block head %}
+{{ super() }}
+<link href={{url_for("static", filename="stylesheets/index.css")}} rel="stylesheet">
+{% endblock %}
+
 {% block title %}Home{% endblock %}
 
 {% block header %}
@@ -11,7 +16,7 @@
   <li><i class="fa fa-google-plus-square"></i></li>
   <li><i class="fa fa-twitter-square"></i></li>
 </ul>
-<a href="#" title="Homepage" id="logo"><img src="images/abelson_logo.png"></a>
+<a href="#" title="Homepage" id="logo"><img src={{url_for("static", filename="images/abelson_logo.png")}}></a>
 <nav>
   <ul id="nav">
     <li><a href="#about" title="About">About</a></li>
@@ -40,12 +45,12 @@
    Services
   </h1>
   <div id=pics>
-    <img src="images/millwright.jpg">
-    <img src="images/welding.jpg">
-    <img src="images/rigging.jpg">
-    <img src="images/ductwork.jpg">
-    <img src="images/pipefitter.jpg">
-    <img src="images/fabrication.jpg">
+    <img src={{url_for("static", filename="images/millwright.jpg")}}>
+    <img src={{url_for("static", filename="images/welding.jpg")}}>
+    <img src={{url_for("static", filename="images/rigging.jpg")}}>
+    <img src={{url_for("static", filename="images/ductwork.jpg")}}>
+    <img src={{url_for("static", filename="images/pipefitter.jpg")}}>
+    <img src={{url_for("static", filename="images/fabrication.jpg")}}>
   </div>
  </section>
  <section id="clients">
@@ -53,11 +58,11 @@
      Clients
    </h1>
    <div id="clientimages">
-     <img src="images/lge.jpg" height="150" width="200" border="0">
-     <img src="images/ford.jpg" height="150" width="200" border="0">
-     <img src="images/ups.png" height="150" width="150" border="0">
-     <img src="images/brown-forman.jpg" height="150" width="350" border="0">
-     <img src="images/ge.png" height="150" width="150" border="0">
+     <img src={{url_for("static", filename="images/lge.jpg")}} height="150" width="200" border="0">
+     <img src={{url_for("static", filename="images/ford.jpg")}} height="150" width="200" border="0">
+     <img src={{url_for("static", filename="images/ups.png")}} height="150" width="150" border="0">
+     <img src={{url_for("static", filename="images/brown-forman.jpg")}} height="150" width="350" border="0">
+     <img src={{url_for("static", filename="images/ge.png")}} height="150" width="150" border="0">
    </div>
      <blockquote id="blocksockknok">
        "Wow, they are pretty much not bad; they actually did the thing. What's more, they did it right good."
@@ -68,7 +73,7 @@
      </blockquote>
    </section>
    <div id="fade">
-     <img src="images/fade.png">
+     <img src={{url_for("static", filename="images/fade.png")}}>
    </div>
    <section id="locats">
      <h1 class="sock">

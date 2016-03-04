@@ -61,7 +61,7 @@ main {
     margin-right: auto;
     width: 1100px;
     height: 500px;
-    background-image: url(imgs/factory_large.png);
+    background-image: url(images/factory_large.png);
     background-repeat: no-repeat;
     background-position: center;
 }
