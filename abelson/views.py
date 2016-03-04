@@ -53,11 +53,11 @@ def login():
 def login_check():
     # validate username and password
     if(defOfRandom.LoginCheck(request)): 
-        return redirect(url_for('admin'))
+        return url_for('admin')
     else:
         flash('Username or password incorrect')
 
-    return redirect(url_for('login'))
+    return url_for('login')
 
 @app.route('/logout')
 def logout():

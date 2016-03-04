@@ -20,6 +20,13 @@
 
       success: (data) => {
         console.log(data);
+        if(data.includes("login")){
+        var a = document.getElementById("no");
+        a.innerHTML = "Username and Password do not mach" 
+        }
+        else if(data.includes("admin")){
+          window.location.href = data;
+        }
       },
 
       error: (xhr, errorType, error) => {

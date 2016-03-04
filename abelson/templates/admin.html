@@ -5,7 +5,7 @@
 {% block title %}- Admin{% endblock %}
 {% block head %}
 {{ super() }}
-<link rel="stylesheet" href="/static/admin_loc.css"> 
+<link rel="stylesheet" href={{url_for("static/style"), filename="admin_loc.css"}}> 
 {% endblock %}
 {% block menu1%}
 <div id="menu1div">
