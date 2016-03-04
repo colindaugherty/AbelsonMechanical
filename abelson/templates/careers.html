@@ -30,18 +30,18 @@
     <label>
       <select name="position">
         <optgroup label="Louisville">
-	  {% for job in jobs %}
-	  {% if job.loc == 1 %}
+          {% for job in jobs %}
+          {% if job.loc == 1 %}
           <option value="1">{{job.name}}</option>
-	  {% endif %}
-	  {% endfor %}
+          {% endif %}
+          {% endfor %}
         </optgroup>
         <optgroup label="Evansville">
-	  {% for job in jobs %}
-	  {% if job.loc == 2 %}
+          {% for job in jobs %}
+          {% if job.loc == 2 %}
           <option value="2">{{job.name}}</option>
-	  {% endif %}
-	  {% endfor %}
+          {% endif %}
+          {% endfor %}
         </optgroup>
       </select>
     </label>
