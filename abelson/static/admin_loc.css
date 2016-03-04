@@ -1,0 +1,36 @@
+#adminmain{
+  background-color: #fff;
+  box-shadow: 3px 3px 3px 3px #ccc;
+  width: 600px;
+  height: 500px;
+  margin: auto;
+  margin-top: 2em;
+}
+
+#locul{
+  text-align: end;
+  margin-right: 150px;
+}
+
+#locul input{
+  width: 220px;
+  height: 30px;
+}
+
+#locul li{
+  margin: 15px;
+}
+
+#loc_lab{
+  width: 100%;
+  display: inline-block;
+  text-align: center;
+  border-bottom: 2px solid #CBDB58;
+  padding-top: 20px;
+  padding-bottom: 10px;
+}
+
+#loc_edit{
+  background: transparent;
+  width: 135px;
+}

@@ -1,0 +1,60 @@
+{% set menu = 'main' %}
+{% extends "base.html" %}
+{% block head %}
+{{ super() }}
+{% endblock %}
+{% block title %}- Careers{% endblock %}
+{% block content %}
+<main>
+  {% for job in jobs %}
+  <section>
+    <span>{{job.name}}</span>
+    <span>{{job.loc}}</span>
+    <p>{{job.description}}</p>
+  </section>
+  {% endfor %}
+  <form action="/careers/send" method="POST" enctype="multipart/form-data">
+    <label>
+      <span>First Name:</span>
+      <input type="text" name="firstname">
+    </label>
+    <label>
+      <input type="text" name="lastname">
+    </label>
+    <label>
+      <input type="text" name="email">
+    </label>
+    <label>
+      <input type="text" name="phone">
+    </label>
+    <label>
+      <select name="position">
+        <optgroup label="Louisville">
+	  {% for job in jobs %}
+	  {% if job.loc == 1 %}
+          <option value="1">{{job.name}}</option>
+	  {% endif %}
+	  {% endfor %}
+        </optgroup>
+        <optgroup label="Evansville">
+	  {% for job in jobs %}
+	  {% if job.loc == 2 %}
+          <option value="2">{{job.name}}</option>
+	  {% endif %}
+	  {% endfor %}
+        </optgroup>
+      </select>
+    </label>
+    <label>
+      <input type="file" name="application" accepts="application/pdf">
+    </label>
+    <label>
+      <input type="text" name="msg">
+    </label>
+    <button type="submit">Send</button>
+  </form>
+</main>
+{% endblock %}
+{% block footer %}
+{{ super() }}
+{% endblock %}

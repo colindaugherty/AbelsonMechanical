@@ -1,0 +1,22 @@
+{
+  "name": "abelson",
+  "version": "0.0.0",
+  "description": "Abelson Mechanical Site",
+  "main": "main.js",
+  "dependencies": {
+    "dragula": "^3.6.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cdaug/AbelsonMechanical.git"
+  },
+  "author": "Sparks Team",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cdaug/AbelsonMechanical/issues"
+  }
+}

@@ -1,0 +1,47 @@
+{% set menu = 'main' %}
+{% extends "base.html" %}
+{% block head %}
+{{ super() }}
+<link rel="stylesheet" href="/static/admin_update.css">
+{% endblock %}
+{% block title %}- Admin Careers New{% endblock %}
+{% block menu1%}
+<div id="menu1div">
+  <span id="menu1text">Update Job</span>
+</div>
+{% endblock %}
+{% block content %}
+<main>
+  <h1 id="HEADER">Job Postings</h1>
+  <form  method="post" >
+    <ul id="UL2">
+      <li>
+        <label>
+          <span>Job Name:</span>
+          <input type="text" value="{{job.name}}" name="name">
+        </label>
+      </li>
+      <li>
+        <label>
+          <span>Location:</span>
+          <select name="location">
+            <option value="1" {% if job.loc == 1 %}selected{% endif %}>Louisville, KY</option>
+            <option value="2" {% if job.loc == 2 %}selected{% endif %}>Evansville, IN</option>
+            <option value="1">Louisville, KY</option>
+            <option value="2">Evansville, IN</option>
+          </select>
+        </label>
+      </li>
+      <li>
+        <label id="TextAreaL">
+          <span>Description:</span>
+          <textarea id="Area" name="description" rows="8" cols="40">{{job.description}}</textarea>
+        </label>
+      </li>
+      <button type="submit">Update</button>
+    </form>
+  </main>
+  {% endblock %}
+  {% block footer %}
+  {{ super() }}
+  {% endblock %}

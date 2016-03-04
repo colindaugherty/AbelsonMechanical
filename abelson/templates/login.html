@@ -1,0 +1,27 @@
+{% set menu = 'main' %}
+{% extends "base.html" %}
+{% block title %}- Login{% endblock %}
+{% block head %}
+{{ super() }}
+{% endblock %}
+{% block content %}
+<main>
+  <span>{{NO}}</span>
+  <form id="loginForm" action="/login/check" method="post">
+    <label>
+      <span>Username:</span>
+      <input id="InUser" type="text" name="username" required>
+    </label>
+    <label>
+      <span>Password:</span>
+      <input id="InPass" type="password" name="password" required>
+    </label>
+    <input type="submit" value="Login">
+  </form>
+</main>
+{% endblock %}
+{% block footer %}
+{{super()}}
+<script src="{{url_for('static', filename='script/login.js')}}"></script>
+
+{% endblock %}

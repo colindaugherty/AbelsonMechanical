@@ -1,0 +1,55 @@
+{% set menu = 'main' %}
+{% set selected = 'home' %}
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block head %}
+  {{ super() }}
+{% endblock %}
+{% block content %}
+  <main>
+    <h1>Placeholder</h1>
+    {% for loc in locs %}
+        <section>
+         <h4>{{loc.name}}</h4>
+         <span>{{loc.map}}</span>
+         <span>{{loc.address}}</span>
+         <span>{{loc.fax}}</span>
+         <span>{{loc.phone}}</span>
+         <span>{{loc.email}}</span>
+        </section>
+    {% endfor %}
+    <form id="contact" action="/contact" method="POST">
+      <label>    
+        <input type="text" placeholder="First Name" name="firstname">
+      </label>
+      <label>
+         <input type="text" placeholder="Last Name" name="lastname">
+      </label>   
+      <label>
+         <input type="text" placeholder="Email Address" name="email">
+      </label>
+      <label>
+         <input type="text" placeholder="Phone Number" name="phone">
+      </label>
+      <label>
+         <input type="text" placeholder="Company Name" name="company">
+      </label>
+      <label>
+         <input type="text" placeholder="Industry" name="industry">
+      </label>
+      <label>
+         <select name="location">
+            <option value="1">loc 1</option>
+            <option value="2">loc 2</option>
+         </select>
+      </label>
+      <label>
+        <textarea name="msg"></textarea>
+      </label>
+      <button type="submit">Send</button>
+    </form>
+  </main>
+{% endblock %}
+{% block footer %}
+  {{ super() }}
+{% endblock %}
