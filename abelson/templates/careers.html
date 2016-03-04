@@ -16,7 +16,7 @@
   <li><i class="fa fa-google-plus-square"></i></li>
   <li><i class="fa fa-twitter-square"></i></li>
 </ul>
-<a href="home.html" title="Homepage" id="logo"><img src="images/abelson_logo.png"></a>
+<a href="home.html" title="Homepage" id="logo"><img src={{url_for("static", filename="images/abelson_logo.png")}}></a>
 <nav>
   <ul id="nav">
     <li><a href="index.html#about" title="About"></a>About</li>
@@ -89,4 +89,17 @@
   </form>
   </div>
 </section>
+{% endblock %}
+{% block footer %}
+<span id="copyright">
+  Copyright &copy 2015 Ableson Mechanical. All rights reserved.
+</span>
+<ul id="icons">
+  <li><i class="fa fa-facebook-official"></i></li>
+  <li><i class="fa fa-google-plus-square"></i></li>
+  <li><i class="fa fa-twitter-square"></i></li>
+</ul>
+<span id="bimg" align="right">
+  Crafted by <span id="greenfoot">Big Idea Interactive Media</span>
+</span>
 {% endblock %}
