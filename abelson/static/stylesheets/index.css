@@ -1,0 +1,207 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+}
+
+#ohdang {
+    color: white;
+    list-style-type: none;
+    text-align: right;
+    margin: 0px;
+    padding-right: 15%;
+    padding-top: 10px;
+    padding-bottom: 0px;
+}
+
+#ohdang > li {
+    display: inline;
+    padding: 5px;
+}
+
+header {
+    background-color: #263238;
+}
+
+#nav {
+    list-style: none;
+    color: white;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    margin: 0px;
+    text-transform: uppercase;
+}
+
+#nav > li {
+    margin: 20px;
+}
+
+#nav > li > a {
+    text-decoration: none;
+    color: white;
+}
+
+main {
+    margin: 0px;
+}
+
+#logo {
+    display: flex;
+    justify-content: center;
+}
+
+#dropitlikeitshot {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5px;
+}
+
+#faclarge {
+    margin-left: auto;
+    margin-right: auto;
+    width: 1100px;
+    height: 500px;
+    background-image: url(imgs/factory_large.png);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#jonlincon {
+    width: 50%;
+    margin: 0px;
+    padding-top: 110.5px;
+    padding-bottom: 110.5px;
+}
+
+#jonlincon > h2 {
+    margin: 0px;
+    padding: 10px;
+    background-color: #CDDC39;
+    color: white;
+    font-weight: 400;
+}
+
+#wottabottal {
+    margin-top: auto;
+    margin-bottom: auto;
+    margin: 0px;
+    background-color: #FFF;
+}
+
+#wottabottal > p {
+    margin: 0px;
+    padding: 15px;
+}
+
+.sock {
+    text-align: center;
+    font-size: 2em;
+    margin: 20px;
+    margin-bottom: 15px;
+    font-weight: 400;
+}
+
+#blocksockknok {
+    text-align: center;
+}
+
+.form-style-9 {
+    display: flex;
+    justify-content: center;
+}
+
+hr {
+    width: 75px;
+}
+
+#clientimages {
+    display: flex;
+    justify-content: center;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+#servicesservice {
+    display: flex;
+    justify-content: center;
+}
+
+#block {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#fade {
+    display: flex;
+    justify-content: center;
+}
+
+blockquote > img {
+    padding: 0;
+    margin: 0;
+}
+
+#pics {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#pics > img {
+    margin: 5px;
+}
+
+#maps {
+    display: flex;
+    justify-content: center;
+}
+
+iframe {
+    margin: 5px;
+}
+
+#quiz {
+    text-align: center;
+}
+
+#quiz > form > ul > li {
+    list-style-type: none;
+    padding: 5px;
+}
+
+#quiz > form > ul > li > label {
+    padding: 5px;
+}
+
+footer {
+    color: white;
+    background-color: #263238;
+    padding: 10px;
+}
+
+footer > ul {
+    padding: 0px;
+    margin: 0px;
+}
+
+#unorderedfoot li {
+    display: inline;
+}
+
+#icons {
+    list-style-type: none;
+    text-align: center;
+}
+
+#icons > li {
+    display: inline;
+}
+
+#bimg {
+    text-align: right;
+}
+
+#greenfoot {
+    color: #6db82d;
+}

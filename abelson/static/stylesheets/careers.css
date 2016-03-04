@@ -1,0 +1,123 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0px;
+}
+
+#ohdang {
+    color: white;
+    list-style-type: none;
+    text-align: right;
+    margin: 0px;
+    padding-right: 15%;
+    padding-top: 10px;
+    padding-bottom: 0px;
+}
+
+#ohdang > li {
+    display: inline;
+    padding: 5px;
+}
+
+#butwhy {
+    display: flex;
+    margin: auto;
+}
+
+#logo {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#nav {
+    border: 25;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    list-style: none;
+    color: white;
+}
+
+#nav > li {
+    margin: 20px;
+}
+
+#logo {
+    display: flex;
+    justify-content: center;
+}
+
+header {
+    background-color: #263238;
+}
+
+#block {
+    display: block;
+}
+
+#TURMP {
+   margin: auto;
+
+}
+
+#nacho {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.sock {
+    text-align: center;
+    font-size: 2em;
+    margin: 20px;
+    margin-bottom: 15px;
+    font-weight: 400;
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+}
+
+iframe {
+    margin: 5px;
+}
+
+#apply {
+    display: flex;
+    justify-content: center;
+}
+
+footer {
+    color: white;
+    background-color: #263238;
+    padding: 10px;
+}
+
+footer > ul {
+    padding: 0px;
+    margin: 0px;
+}
+
+#unorderedfoot li {
+    display: inline;
+}
+
+#icons {
+    list-style-type: none;
+    text-align: center;
+}
+
+#icons > li {
+    display: inline;
+}
+
+#bimg {
+    text-align: right;
+}
+
+#greenfoot {
+    color: #6db82d;
+}
