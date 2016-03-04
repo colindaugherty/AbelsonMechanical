@@ -5,7 +5,7 @@
 {% block title %}- Admin{% endblock %}
 {% block head %}
 {{ super() }}
-<link rel="stylesheet" href={{url_for("static/style"), filename="admin_loc.css"}}> 
+<link rel="stylesheet" href="{{url_for('static'), filename='style/admin_loc.css'}}"> 
 {% endblock %}
 {% block menu1%}
 <div id="menu1div">
@@ -16,9 +16,9 @@
 <main id="adminmain">
   {% with messages = get_flashed_messages() %}
   {% if messages %}
-  <ul class=flashes>
+  <ul class="{{ flashes }}">
     {% for message in messages %}
-    <li>{{ message  }}</li>
+    <li>{{ message }}</li>
     {% endfor %}
   </ul>
   {% endif %}
