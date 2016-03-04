@@ -1,60 +1,87 @@
 {% set menu = 'main' %}
+{% set selected = 'home' %}
+
 {% extends "base.html" %}
-{% block head %}
-{{ super() }}
+
+{% block title %}Home{% endblock %}
+
+{% block header %}
+<ul id="ohdang">
+  <li><i class="fa fa-facebook-official"></i></li>
+  <li><i class="fa fa-google-plus-square"></i></li>
+  <li><i class="fa fa-twitter-square"></i></li>
+</ul>
+<a href="home.html" title="Homepage" id="logo"><img src="images/abelson_logo.png"></a>
+<nav>
+  <ul id="nav">
+    <li><a href="home.html#about" title="About"></a>About</li>
+    <li><a href="home.html#services" title="Services">Services</a></li>
+    <li><a href="home.html#clients" title="Clients">Clients</a></li>
+    <li><a href="home.html#locats" title="Locations">Locations</a></li>
+    <li><a href="home.html#contact" title="Contact">Contact</a></li>
+    <li><a href="#" title="Careers">Careers</a></li>
+  </ul>
+</nav>
 {% endblock %}
-{% block title %}- Careers{% endblock %}
+
 {% block content %}
-<main>
-  {% for job in jobs %}
-  <section>
-    <span>{{job.name}}</span>
-    <span>{{job.loc}}</span>
-    <p>{{job.description}}</p>
-  </section>
-  {% endfor %}
-  <form action="/careers/send" method="POST" enctype="multipart/form-data">
-    <label>
-      <span>First Name:</span>
-      <input type="text" name="firstname">
-    </label>
-    <label>
-      <input type="text" name="lastname">
-    </label>
-    <label>
-      <input type="text" name="email">
-    </label>
-    <label>
-      <input type="text" name="phone">
-    </label>
-    <label>
-      <select name="position">
-        <optgroup label="Louisville">
-	  {% for job in jobs %}
-	  {% if job.loc == 1 %}
-          <option value="1">{{job.name}}</option>
-	  {% endif %}
-	  {% endfor %}
-        </optgroup>
-        <optgroup label="Evansville">
-	  {% for job in jobs %}
-	  {% if job.loc == 2 %}
-          <option value="2">{{job.name}}</option>
-	  {% endif %}
-	  {% endfor %}
-        </optgroup>
-      </select>
-    </label>
-    <label>
-      <input type="file" name="application" accepts="application/pdf">
-    </label>
-    <label>
-      <input type="text" name="msg">
-    </label>
-    <button type="submit">Send</button>
+<section id="butwhy">
+  <h1 class="sock">Career Opportunities</h1>
+  <br>
+  <div class="sock">
+    <span>Call 917.756.8000 for more Information</span>
+  </div>
+</section>
+<section id="contact">
+  <h1 class="sock">
+    Contact
+  </h1>
+  <div id="quiz">
+  <form id="dropitlikeitshot" action="/careers/send" method="POST" enctype="multipart/form-data">
+    <ul>
+      <li>
+        <label>
+          <input type="text" placeholder="First Name" name="fname" id="firstname">
+        </label>
+        <label>
+          <input type="text" placeholder="Last Name" name="lastname">
+        </label>
+      </li>
+      <li>
+        <label>
+          <input type="email" placeholder="Email" name="email">
+        </label>
+        <label>
+          <input type="text" placeholder="Phone Number" name="phone">
+        </label>
+      </li>
+      <li>
+        <label>
+          <select name="position">
+            <optgroup label="Louisville">
+              {% for job in jobs %}
+              {% if job.loc == 1 %}
+              <option value ="1">{{job.name}}</option>
+              {% endif %}
+              {% endfor %}
+            </optgroup>
+            <optgroup label="Evansville">
+              {% for job in jobs %}
+              {% if job.loc == 2 %}
+              <option value ="2">{{job.name}}</option>
+              {% endif %}
+              {% endfor %}
+            </optgroup>
+          </select>
+        </label>
+        <input type="file" name="application" accepts="application/pdf">
+      </li>
+      <label>
+       <textarea placeholder="Comments" name="msg" rows="5" cols="42"></textarea>
+      </label>
+    </ul>
+    <button type="submit">Submit</button>
   </form>
-</main>
-{% endblock %}
-{% block footer %}
-{{ super() }}
+  </div>
+</section>
 {% endblock %}
