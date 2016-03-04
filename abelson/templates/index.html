@@ -5,5 +5,119 @@
 
 {% block title %}Home{% endblock %}
 
+{% block header %}
+<ul id="ohdang">
+  <li><i class="fa fa-facebook-official"></i></li>
+  <li><i class="fa fa-google-plus-square"></i></li>
+  <li><i class="fa fa-twitter-square"></i></li>
+</ul>
+<a href="#" title="Homepage" id="logo"><img src="imgs/abelson_logo.png"></a>
+<nav>
+  <ul id="nav">
+    <li><a href="#about" title="About">About</a></li>
+    <li><a href="#services" title="Services">Services</a></li>
+    <li><a href="#clients" title="Clients">Clients</a></li>
+    <li><a href="#locats" title="Locations">Locations</a></li>
+    <li><a href="#contact" title="Contact">Contact</a></li>
+    <li><a href="careers.html" title="Careers">Careers</a></li>
+  </ul>
+</nav>
+{% endblock %}
+
 {% block content %}
+<section id="faclarge">
+  <div id="jonlincon">
+    <h2>Industrial Maintenance Specialists</h2>
+      <div id="wottabottal">
+        <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nutella quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa.</p>
+       <br>
+       <p> Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur sodales ligula in libero. Sed dignissim lacinia nunc. Curabitur tortor. Pellentesque nibh.</p>
+     </div>
+  </div>
+</section>
+<section id="services">
+  <h1 class="sock">
+   Services
+  </h1>
+  <div id=pics>
+    <img src="imgs/millwright.jpg">
+    <img src="imgs/welding.jpg">
+    <img src="imgs/rigging.jpg">
+    <img src="imgs/ductwork.jpg">
+    <img src="imgs/pipefitter.jpg">
+    <img src="imgs/fabrication.jpg">
+  </div>
+ </section>
+ <section id="clients">
+   <h1 class="sock">
+     Clients
+   </h1>
+   <div id="clientimages">
+     <img src="imgs/lge.jpg" height="150" width="200" border="0">
+     <img src="imgs/ford.jpg" height="150" width="200" border="0">
+     <img src="imgs/ups.png" height="150" width="150" border="0">
+     <img src="imgs/brown-forman.jpg" height="150" width="350" border="0">
+     <img src="imgs/ge.png" height="150" width="150" border="0">
+   </div>
+     <blockquote id="blocksockknok">
+       "Wow, they are pretty much not bad; they actually did the thing. What's more, they did it right good."
+       <hr>
+       <span>
+         Spoderman - GE Industrial
+       </span>
+     </blockquote>
+   </section>
+   <div id="fade">
+     <img src="imgs/fade.png">
+   </div>
+   <section id="locats">
+     <h1 class="sock">
+       Locations
+     </h1>
+     <br>
+     <div id="maps">
+       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d401395.11762850627!2d-85.95696301112362!3d38.18901184656371!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88690b1ab35bd511%3A0xd4d3b4282071fd32!2sLouisville%2C+KY!5e0!3m2!1sen!2sus!4v1449238372507" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d100613.63420226864!2d-87.61381992650611!3d37.996353464244606!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8871d5133156772d%3A0xb52e4939112ac99d!2sEvansville%2C+IN!5e0!3m2!1sen!2sus!4v1449241434017" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+     </div>
+   </section>
+   <section id="contact">
+     <h1 class="sock">
+       Contact
+     </h1>
+     <div id="quiz">
+     <form id="dropitlikeitshot" action="/Q" method="POST">
+       <ul>
+         <li>
+           <label>
+             <input type="text" placeholder="First Name" name="fname" id="firstname">
+           </label>
+           <label>
+             <input type="text" placeholder="Last Name" name="lastname">
+           </label>
+         </li>
+   <li>
+     <label>
+       <input type="email" placeholder="Email" name="email">
+     </label>
+     <label>
+       <input type="text" placeholder="Phone Number" name="phone">
+     </label>
+     </li>
+     <li>
+       <label>
+        <input type="text" placeholder="Company Name" name="company">
+       </label>
+       <label>
+         <input type="text" placeholder="Industry" name="industry">
+       </label>
+      </li>
+        <label>
+          <textarea placeholder="Comments" name="msg" rows="5" cols="42"></textarea>
+        </label>
+      </li>
+     </ul>
+     <button type="submit">Submit</button>
+   </form>
+ </div>
+</section>
 {% endblock %}
