@@ -74,11 +74,15 @@ def index():
 def admin():
     return render_template('admin.html', locs=db.get_loc())
 
+
 @app.route("/admin/loc", methods=["POST"])
 def admin_loc():
-    db.update_loc(request.form)
-    flash("Updated Successfully")
-    return redirect(url_for('admin'))
+    if (defOfRandom.CheckLoc(request.form)):
+         db.update_loc(request.form)
+         flash("Updated Successfully")
+         return redirect(url_for('admin'))
+    else:
+        return render_templare("admin.html", msg="Some of the fields are not put in right. Plese fix.")
 
 @app.route("/loc/get", methods=["GET"])
 def loc_get():

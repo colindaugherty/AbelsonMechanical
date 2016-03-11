@@ -1,0 +1,12 @@
+#adminmain{
+   background-color: #fff;
+   box-shadow: 3px 3px 3px 3px #ccc;
+   width: 600px;
+   height:70px;
+   margin: auto;
+   margin-top: 2em;
+}
+
+ul {
+  text-align: center;
+}

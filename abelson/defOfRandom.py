@@ -38,3 +38,11 @@ def LoginCheck(a):
     else:
         return False
         
+def CheckLoc(a):
+    try:
+        int(a["zipcode"])
+        int(a["phone"])
+        int(a["fax"])
+        return True
+    except: 
+        return False

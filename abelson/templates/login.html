@@ -3,20 +3,34 @@
 {% block title %}- Login{% endblock %}
 {% block head %}
 {{ super() }}
+<link rel="stylesheet" href="{{url_for('static', filename='style/login.css')}}">
+{% endblock %}
+{% block menu1%}
+<div id="menu1div">
+  <span id="menu1text">Login</span>
+</div>  
 {% endblock %}
 {% block content %}
-<main>
+<main id="adminmain">
   <span id="no"></span>
   <form id="loginForm" action="/login/check" method="post">
-    <label>
-      <span>Username:</span>
-      <input id="InUser" type="text" name="username" required>
-    </label>
-    <label>
-      <span>Password:</span>
-      <input id="InPass" type="password" name="password" required>
-    </label>
-    <input type="submit" value="Login">
+    <ul>
+      <li>
+        <label>
+          <span>Username:</span>
+          <input id="InUser" type="text" name="username" required>
+        </label>
+      </li>
+      <li>
+        <label>
+          <span>Password:</span>
+          <input id="InPass" type="password" name="password" required>
+        </label>
+      </li>
+      <li>
+        <input type="submit" value="Login">
+      </li>
+    </ul>
   </form>
 </main>
 {% endblock %}
