@@ -81,8 +81,19 @@
      </h1>
      <br>
      <div id="maps">
-       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d401395.11762850627!2d-85.95696301112362!3d38.18901184656371!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88690b1ab35bd511%3A0xd4d3b4282071fd32!2sLouisville%2C+KY!5e0!3m2!1sen!2sus!4v1449238372507" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
-       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d100613.63420226864!2d-87.61381992650611!3d37.996353464244606!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8871d5133156772d%3A0xb52e4939112ac99d!2sEvansville%2C+IN!5e0!3m2!1sen!2sus!4v1449241434017" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+       {% for loc in locs %}
+       <section>
+         <h4>{{loc.name}}</h4>
+         <iframe src={{loc.map}} width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+         <ul>
+          <li><span>{{loc.address}}</span></li>
+          <li><span>{{loc.name}} {{loc.state}} {{loc.zipcode}}</span></li>
+          <li><span>Fax: {{loc.fax}}</span></li>
+          <li><span>Phone: {{loc.phone}}</span></li>
+          <li><span>Email: {{loc.email}}</span></li>
+        </ul>
+      </section>
+      {% endfor %}
      </div>
    </section>
    <section id="contact">
@@ -90,7 +101,7 @@
        Contact
      </h1>
      <div id="quiz">
-     <form id="dropitlikeitshot" action="/Q" method="POST">
+     <form id="indexform" action="/contact" method="POST">
        <ul>
          <li>
            <label>
@@ -101,12 +112,12 @@
            </label>
          </li>
          <li>
-         <label>
-           <input type="email" placeholder="Email" name="email">
-         </label>
-         <label>
-           <input type="text" placeholder="Phone Number" name="phone">
-         </label>
+           <label>
+             <input type="email" placeholder="Email" name="email">
+           </label>
+           <label>
+             <input type="text" placeholder="Phone Number" name="phone">
+           </label>
          </li>
          <li>
            <label>

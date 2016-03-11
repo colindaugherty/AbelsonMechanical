@@ -16,14 +16,14 @@
   <li><i class="fa fa-google-plus-square"></i></li>
   <li><i class="fa fa-twitter-square"></i></li>
 </ul>
-<a href="home.html" title="Homepage" id="logo"><img src={{url_for("static", filename="images/abelson_logo.png")}}></a>
+<a href="/" title="Homepage" id="logo"><img src={{url_for("static", filename="images/abelson_logo.png")}}></a>
 <nav>
   <ul id="nav">
-    <li><a href="#about" title="About">About</a></li>
-    <li><a href="#services" title="Services">Services</a></li>
-    <li><a href="index.html#clients" title="Clients">Clients</a></li>
-    <li><a href="index.html#locats" title="Locations">Locations</a></li>
-    <li><a href="index.html#contact" title="Contact">Contact</a></li>
+    <li><a href="/#about" title="About">About</a></li>
+    <li><a href="/#services" title="Services">Services</a></li>
+    <li><a href="/#clients" title="Clients">Clients</a></li>
+    <li><a href="/#locats" title="Locations">Locations</a></li>
+    <li><a href="/#contact" title="Contact">Contact</a></li>
     <li><a href="#" title="Careers">Careers</a></li>
   </ul>
 </nav>
@@ -42,11 +42,11 @@
     Contact
   </h1>
   <div id="quiz">
-  <form id="dropitlikeitshot" action="/careers/send" method="POST" enctype="multipart/form-data">
+  <form id="careerform" action="/careers/send" method="POST" enctype="multipart/form-data">
     <ul>
       <li>
         <label>
-          <input type="text" placeholder="First Name" name="fname" id="firstname">
+          <input type="text" placeholder="First Name" name="firstname" id="firstname">
         </label>
         <label>
           <input type="text" placeholder="Last Name" name="lastname">
