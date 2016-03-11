@@ -20,10 +20,8 @@ class UserNotFoundError(Exception):
 # http://flask-login.readthedocs.org/en/latest/_modules/flask/ext/login.html#UserMixin
 class User(UserMixin):
     '''Simple User class'''
-    USERS = {
-        'admin':'password',
-        'garrett':'password'
-    }
+    USERS = db.get_user
+
 
     def __init__(self, id):
         if not id in self.USERS:
