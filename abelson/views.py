@@ -10,8 +10,6 @@ from . import db, defOfRandom, AbelsonEmail
 
 import base64
 
-app.config['SECRET_KEY'] = 'SET T0 4NY SECRET KEY L1KE RAND0M H4SH'
-
 login_manager = LoginManager()
 login_manager.init_app(app)
 
@@ -22,7 +20,7 @@ class UserNotFoundError(Exception):
 # http://flask-login.readthedocs.org/en/latest/_modules/flask/ext/login.html#UserMixin
 class User(UserMixin):
     '''Simple User class'''
-    USERS = db.get_user
+    USERS = db.get_user()
 
 
     def __init__(self, id):
