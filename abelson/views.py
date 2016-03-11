@@ -10,6 +10,8 @@ from . import db, defOfRandom, AbelsonEmail
 
 import base64
 
+app.config['SECRET_KEY'] = 'SET T0 4NY SECRET KEY L1KE RAND0M H4SH'
+
 login_manager = LoginManager()
 login_manager.init_app(app)
 
