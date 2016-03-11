@@ -12,8 +12,11 @@
 {% endblock %}
 {% block content %}
 <main id="adminmain">
-  <span id="no"></span>
-  <form id="loginForm" action="/login/check" method="post">
+  {% for message in get_flashed_messages() %}
+    <span id="no">{{message}}</span>
+  {% endfor %}
+
+  <form id="loginForm" action="/login" method="post">
     <ul>
       <li>
         <label>
@@ -36,6 +39,5 @@
 {% endblock %}
 {% block footer %}
 {{super()}}
-<script src="{{url_for('static', filename='script/login.js')}}"></script>
 
 {% endblock %}

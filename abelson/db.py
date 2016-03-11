@@ -29,10 +29,10 @@ def clean_up(db, c):
     c.close()
     db.close()
 
-def get_user():
+def get_user(name):
     db, c = connect()
 
-    c.execute("SELECT * FROM users")
+    c.execute("SELECT * FROM users WHERE username = ?", (name,))
     result = c.fetchall()
     result = mapify_query_results(USER, result)
     clean_up(db, c)

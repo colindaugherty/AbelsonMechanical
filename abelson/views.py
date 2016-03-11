@@ -1,5 +1,4 @@
 from flask import flash, render_template, request, session, redirect, url_for, jsonify
-from flask.ext.login import LoginManager, UserMixin, current_user, login_user, logout_user
 
 from email.mime.text import MIMEText
 from email.mime.application import MIMEApplication
@@ -10,57 +9,37 @@ from . import db, defOfRandom, AbelsonEmail
 
 import base64
 
-login_manager = LoginManager()
-login_manager.init_app(app)
 
-class UserNotFoundError(Exception):
-    pass
-
-
-# http://flask-login.readthedocs.org/en/latest/_modules/flask/ext/login.html#UserMixin
-class User(UserMixin):
-    '''Simple User class'''
-    USERS = db.get_user()
-
-
-    def __init__(self, id):
-        if not id in self.USERS:
-            raise UserNotFoundError()
-        self.id = id
-        self.password = self.USERS[id]
-
-    @classmethod
-    def get(self_class, id):
-        '''Return user instance of id, return None if not exist'''
-        try:
-            return self_class(id)
-        except UserNotFoundError:
-            return None
-
-
-# Flask-Login use this to reload the user object from the user ID stored in the session
-@login_manager.user_loader
-def load_user(id):
-    return User.get(id)
-
-@app.route('/login')
+@app.route('/login', methods=['GET', 'POST'])
 def login():
-    return render_template('login.html')
+    if request.method == 'GET':
+        if 'sid' in session.keys():
+            return redirect(url_for('admin'))
+        return render_template('login.html')
+    elif request.method == 'POST':
+        keys = request.form.keys()
+        if "username" in keys and "password" in keys:
+            user = db.get_user(request.form['username'])
+            print(user)
+            if user:
+                user = user[0]
+                print(request.form['password'])
+                print(user['password'])
+                if request.form['password'] == user['password']:
+                    session['sid'] = user['id']
+                    return redirect(url_for('admin'))
+                flash('Invalid Login')
+                return render_template("login.html")
+        flash("Invalid Login")
+        return render_template('login.html')
 
-@app.route('/login/check', methods=['POST'])
-def login_check():
-    # validate username and password
-    if(defOfRandom.LoginCheck(request)): 
-        return url_for('admin')
-    else:
-        flash('Username or password incorrect')
-
-    return url_for('login')
 
 @app.route('/logout')
 def logout():
-    logout_user()
-    return redirect(url_for('index'))
+    if 'sid' in session.keys():
+        del session['sid']
+
+    return redirect(url_for('login'))
 
 @app.route("/")
 def index():
@@ -68,11 +47,17 @@ def index():
 
 @app.route("/admin", methods=["GET"])
 def admin():
+    if 'sid' not in session.keys():
+        return redirect(url_for('login'))
+
     return render_template('admin.html', locs=db.get_loc())
 
 
 @app.route("/admin/loc", methods=["POST"])
 def admin_loc():
+    if 'sid' not in session.keys():
+        return redirect(url_for('login'))
+
     if (defOfRandom.CheckLoc(request.form)):
          db.update_loc(request.form)
          flash("Updated Successfully")
@@ -90,6 +75,9 @@ def loc_get():
 
 @app.route("/admin/careers", methods=["GET"])
 def admin_careers():
+    if 'sid' not in session.keys():
+        return redirect(url_for('login'))
+
     return render_template('admin_careers.html', jobs=db.get_jobs() )
 
 
